@@ -1,6 +1,7 @@
 const { find } = require("../models/task");
 const express = require('express');
 const router = express.Router();
+const bcrypt = require("bcrypt");
 
 // Task Model
 const Task = require('../models/task');
@@ -19,17 +20,32 @@ router.get('/:id', async (req, res) => {
 
 // ADD a new task
 router.post('/', async (req, res) => {
-  const { nombre, rut, correo, perfil } = req.body;
-  const task = new Task({nombre, rut, correo, perfil});
-  console.log(task)
-  await task.save();
-  res.json({status: 'Task Saved'});
+  const { name, rut, mail, pass, perfil } = req.body;
+  bcrypt
+    .hash(pass, 10)
+    .then((hashedPassword) => {
+      // create a new user instance and collect the data
+      const task = new Task({
+        name: name,
+        rut: rut,
+        mail: mail,
+        pass: hashedPassword,
+        perfil: perfil
+      });
+      task
+        .save()
+    // const { name, rut, mail, pass, perfil } = req.body;
+    // const task = new Task({name, rut, mail, pass, perfil});
+    // console.log(task)
+    // await task.save();
+    res.json({status: 'Task Saved'});
+  });
 });
 
 // UPDATE a new task
 router.put('/:id', async (req, res) => {
-  const { nombre, rut, correo, perfil } = req.body;
-  const newTask = {nombre, rut, correo, perfil};
+  const { name, rut, mail, pass, perfil } = req.body;
+  const newTask = {name, rut, mail, pass, perfil};
   await Task.findByIdAndUpdate(req.params.id, newTask);
   res.json({status: 'Task Updated'});
 });

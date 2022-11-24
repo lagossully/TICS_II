@@ -1,8 +1,16 @@
 import React, { Component} from "react";
 import { render } from "react-dom";
-import { SSL_OP_PKCS1_CHECK_1 } from "constants";
 import App from "./app";
 
+import { RecoilRoot } from 'recoil';
 
 
-render (<App/>, document.getElementById("app"))
+render (
+
+<React.StrictMode>
+<RecoilRoot>
+  <App />
+</RecoilRoot>
+</React.StrictMode>,
+
+document.getElementById("app"))
