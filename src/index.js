@@ -6,7 +6,7 @@ const path = require("path");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 
-const Task = require("./models/task");
+const Usuario = require("./models/user");
 const { mongoose } = require("./database");
 
 //configuracion
@@ -20,8 +20,12 @@ app.use(express.json());
 
 
 //routes
-app.use("/mod/task", require("./routes/task.routes"));
-
+app.use("/mod/user", require("./routes/user.routes"));
+app.use("/mod/product", require("./routes/product.routes"));
+app.use("/mod/movin", require("./routes/movInv.routes"));
+app.use("/mod/inven", require("./routes/inventario.routes"));
+app.use("/mod/client", require("./routes/cliente.routes"));
+app.use("/mod/agenda", require("./routes/agenda.routes"));
 
 
 //static files
@@ -37,12 +41,12 @@ app.listen(app.get("port"), () => {
 app.post("/app/login", (request, response) => {
     // check if email exists
     // console.log("aca",request.body.mail)
-      Task.findOne({mail:request.body.mail})
+      Usuario.findOne({correo:request.body.correo})
       // if email exists
-        .then((task) => {
+        .then((user) => {
           // compare the password entered and the hashed password found
           bcrypt
-            .compare(request.body.pass, task.pass)
+            .compare(request.body.pass, user.pass)
     
             // if the passwords match
             .then((passwordCheck) => {
@@ -58,7 +62,7 @@ app.post("/app/login", (request, response) => {
               //   return success response
               response.status(200).send({
                 message: "Login Successful",
-                mail: task.mail,
+                correo: user.correo,
                 // token,
               });
             })

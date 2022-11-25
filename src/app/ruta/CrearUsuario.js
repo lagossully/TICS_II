@@ -18,10 +18,6 @@ function CrearUsuario (){
     const onMailChange=(value)=>setMail(value);
     const onPerfilChange=(value)=>setPerfil(value);
     
-    
-    const Yep = ()=>{
-        navigation("/dd")
-    }
 
     const options =[
         {
@@ -33,13 +29,13 @@ function CrearUsuario (){
         }]
     const Handler = (e)=> {
         let message={
-            name:name,
+            nombre:name,
             rut:rut,
-            mail:mail,
+            correo:mail,
             pass:pass,
             perfil:perfil.value
         }
-        fetch("/mod/task",{
+        fetch("/mod/user",{
             method:"POST",
             headers:{
                 "Accept":"application/json",
@@ -104,8 +100,7 @@ function CrearUsuario (){
                 />
                 <Button variant="info" onClick={Handler}>Crear usuario</Button>
                 
-                <Link to={"../prod"} >try</Link>                
-                {/* <Link to={"prod"} >try</Link> */}
+                {/* <Link to={"../prod"} >try</Link>         */}
             </div>
         </div>
     )

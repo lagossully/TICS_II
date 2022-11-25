@@ -4,7 +4,7 @@ import Select from "react-select";
 
 function CrearProducto (){
     const [name, setName] = React.useState("");
-    const [Descripcion, setDescripcion] = React.useState("");
+    const [descripcion, setDescripcion] = React.useState("");
     const [precio, setPrecio] = React.useState("");
     const [costo, setCosto] = React.useState("");
 
@@ -23,13 +23,12 @@ function CrearProducto (){
         }]*///Aqui se cargan los datos de la base de datos
     const Handler = (e)=> {
         let message={
-            name:name,
-            ID:ID,
-            Descripcion:Descripcion,
+            nombre:name,
+            descripcion:descripcion,
             costo:costo,
-            precio:precio.value
+            precio:precio
         }
-        fetch("/this",{
+        fetch("/mod/product",{
             method:"POST",
             headers:{
                 "Accept":"application/json",
@@ -55,7 +54,7 @@ function CrearProducto (){
                 <Form.Control
                     
                     id="ID"
-                    onChange={ID => onIDChange(ID.target.value)}
+                    onChange={ID => onNameChange(ID.target.value)}
                     required={true}
                 />
                 <Form.Text id="ID" muted></Form.Text>
