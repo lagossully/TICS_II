@@ -43,7 +43,7 @@ function CrearUsuario (){
             },
             body: JSON.stringify(message)
         })
-            .then(res => console.log(res))
+            .then(res => {console.log(res); navigation("/usuario")})
             .catch(err => console.error(err))
         e.preventDefault();
     }
@@ -52,7 +52,7 @@ function CrearUsuario (){
         <div>
             <nav className="light-blue darken-4">
                 <div className="container">
-                    <a className="brand-logo" href="/">HM Salon</a>
+                    <a className="brand-logo" href="" onClick={() => navigation("/")}>HM Salon</a>
                 </div>
             </nav>
             <div className="container">
@@ -99,6 +99,7 @@ function CrearUsuario (){
                     options={options}
                 />
                 <Button variant="info" onClick={Handler}>Crear usuario</Button>
+                <Button variant="info" onClick={() => navigation("/usuario")}>Cancelar</Button>
                 
                 {/* <Link to={"../prod"} >try</Link>         */}
             </div>

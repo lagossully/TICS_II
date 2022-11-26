@@ -5,10 +5,10 @@ import { useNavigate, Link} from "react-router-dom";
 
 function Dashboard (){
     const navigation = useNavigate();
+    
+    // console.log(localStorage)
     // const handleClick = useCallback(() => navigate(link), [navigate])
-    
-    
-  
+
     // const Handler = (e)=> {
     //     let message={
     //         nombre:name,
@@ -34,7 +34,7 @@ function Dashboard (){
         <div>
             <nav className="light-blue darken-4">
                 <div className="container">
-                    <a className="brand-logo" href="/">HM Salon</a>
+                    <a className="brand-logo" href="" onClick={() => navigation("/")}>HM Salon</a>
                 </div>
             </nav>
             <div className="container">
@@ -42,9 +42,9 @@ function Dashboard (){
                     <div className="col s12 m6">
                         <Card>
                             <Card.Body>
-                                <Card.Title>Crear Usuario</Card.Title>
+                                <Card.Title>Usuario</Card.Title>
                                 <Card.Text>
-                                    <Link to="/user">Crear Usuario</Link>
+                                    <Link to="/usuario">Gestionar Usuarios</Link>
                                 </Card.Text>
                             </Card.Body>
                         </Card>

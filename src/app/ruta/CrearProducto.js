@@ -1,8 +1,11 @@
 import React, { Component } from "react";
 import { Form, Button} from 'react-bootstrap';
 import Select from "react-select";
+import { useNavigate, Link} from "react-router-dom";
 
 function CrearProducto (){
+    const navigation = useNavigate();
+    
     const [name, setName] = React.useState("");
     const [descripcion, setDescripcion] = React.useState("");
     const [precio, setPrecio] = React.useState("");
@@ -45,7 +48,7 @@ function CrearProducto (){
         <div>
             <nav className="light-blue darken-4">
                 <div className="container">
-                    <a className="brand-logo" href="/">HM Salon</a>
+                    <a className="brand-logo" href="" onClick={() => navigation("/")}>HM Salon</a>
                 </div>
             </nav>
            
