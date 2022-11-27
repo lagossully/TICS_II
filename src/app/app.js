@@ -13,6 +13,9 @@ import Dashboard from "./ruta/Dashboard";
 
 import Test from "./ruta/Agenda/agendatest";
 import Agenda from "./ruta/Agenda/agenda";
+import AsignarPeluquero from "./ruta/Agenda/Peluquero";
+
+
 
 function App (){
 
@@ -27,6 +30,7 @@ function App (){
         <Route path="prod" element={<CrearProducto/>} />
         <Route path="serv" element={<CrearServicio/>} />
         <Route path="agen" element={<Agenda/>} />
+        <Route path="pel" element={<AsignarPeluquero/>} />
         <Route path="test" element={<Test/>} /> {/*vista de prueba*/}
       </Routes>
     </BrowserRouter>

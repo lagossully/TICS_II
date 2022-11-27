@@ -26,6 +26,7 @@ app.use("/mod/movin", require("./routes/movInv.routes"));
 app.use("/mod/inven", require("./routes/inventario.routes"));
 app.use("/mod/client", require("./routes/cliente.routes"));
 app.use("/mod/agenda", require("./routes/agenda.routes"));
+app.use("/mod/servicio", require("./routes/servicio.routes"));
 
 
 //static files

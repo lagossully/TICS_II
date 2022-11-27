@@ -54,8 +54,9 @@ router.put('/:id', async (req, res) => {
   //       correo: correo,
   //       pass: hashedPassword,
   //       perfil: perfil}
-  //     Usuario.findByIdAndUpdate({_id:req.params._id}, {$set:user},
+  //     Usuario.findByIdAndUpdate({_id:req.params.id}, {$set:user},
   //       {new:true})
+  //       console.log(req.params.id, user)
   //     res.json({status: 'Usuario Actualizado'});
   //   });
   const newUser = {nombre, rut, correo, pass, perfil};

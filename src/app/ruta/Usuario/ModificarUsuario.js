@@ -56,6 +56,20 @@ function ModificarUsuario (){
         e.preventDefault();
     }
 
+    const Delete = (e) => {
+        fetch("/mod/user/"+id,{
+            method:"DELETE",
+            headers:{
+                "Accept":"application/json",
+                "Content-Type":"application/json",
+            },
+        })
+            .then(res => {console.log(res); navigation("/usuario")})
+            .catch(err => console.error(err))
+        
+        e.preventDefault();
+    }
+
     return(
         <div>
             <nav className="light-blue darken-4">
@@ -108,6 +122,7 @@ function ModificarUsuario (){
                 />
                 <Button variant="info" onClick={Handler}>Modificar Usuario</Button>
                 <Button variant="info" onClick={() => navigation("/usuario")}>Cancelar</Button>
+                <Button variant="warning" onClick={() => Delete()}>Eliminar</Button>
                 
                 {/* <Link to={"../prod"} >try</Link>         */}
             </div>

@@ -5,30 +5,6 @@ import { useNavigate, Link} from "react-router-dom";
 
 function Dashboard (){
     const navigation = useNavigate();
-    
-    // console.log(localStorage)
-    // const handleClick = useCallback(() => navigate(link), [navigate])
-
-    // const Handler = (e)=> {
-    //     let message={
-    //         nombre:name,
-    //         rut:rut,
-    //         correo:mail,
-    //         pass:pass,
-    //         perfil:perfil.value
-    //     }
-    //     fetch("/mod/user",{
-    //         method:"POST",
-    //         headers:{
-    //             "Accept":"application/json",
-    //             "Content-Type":"application/json",
-    //         },
-    //         body: JSON.stringify(message)
-    //     })
-    //         .then(res => console.log(res))
-    //         .catch(err => console.error(err))
-    //     e.preventDefault();
-    // }
 
     return(
         <div>
@@ -52,15 +28,26 @@ function Dashboard (){
                     <div className="col s12 m6">
                         <Card>
                             <Card.Body>
+                                <Card.Title>Pedir Hora</Card.Title>
+                                <Card.Text>
+                                    <Link to="/pel">Se realiza la peticion de la hora</Link>
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </div>
+
+                    {/* <div className="col s12 m6">
+                        <Card>
+                            <Card.Body>
                                 <Card.Title>Crear Producto</Card.Title>
                                 <Card.Text>
                                     <Link to="/prod">Crear Producto</Link>
                                 </Card.Text>
                             </Card.Body>
                         </Card>
-                    </div>
+                    </div> */}
                     
-                    <div className="col s12 m6">
+                    {/* <div className="col s12 m6">
                         <Card>
                             <Card.Body>
                                 <Card.Title>Crear Servicio</Card.Title>
@@ -69,7 +56,17 @@ function Dashboard (){
                                 </Card.Text>
                             </Card.Body>
                         </Card>
-                    </div>
+                    </div> */}
+                    {/* <div className="col s12 m6">
+                        <Card>
+                            <Card.Body>
+                                <Card.Title>Gestionar Agenda</Card.Title>
+                                <Card.Text>
+                                    <Link to="/agen">Gestionar Agenda</Link>
+                                </Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </div> */}
                 </div>
                 {/* <div className="row">
                 </div> */}

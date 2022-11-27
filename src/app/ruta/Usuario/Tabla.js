@@ -54,23 +54,14 @@ function Tabla (){
       })
       .catch(err => console.error(err))
   }, []);
-  
-  // const Handler = (e)=> {
-  //   console.log(e)
-  //   sessionStorage.setItem("temp",e);
-  //   navigation("/mod");
-  // }
 
   const columns = React.useMemo( () => [
       {
           Header: 'Nombre',
-          accessor: 'nombre', // accessor is the "key" in the data
+          accessor: 'nombre',
           Cell: (props) => {
             const {value, row}=props;
-            // console.log(row)
-            // sessionStorage.setItem("temp", row.original._id)
             return(
-              // <Link to={"#"} onClick={()=>Handler(row.original._id)}>
               <Link to={"/mod"} onClick={()=>sessionStorage.setItem("temp",row.original._id)}>
                 {value}
               </Link>
@@ -88,6 +79,12 @@ function Tabla (){
       {
           Header: 'Perfil',
           accessor: 'perfil',
+          Cell: (props) => {
+            const {value}=props;
+            return(
+              value==0?"Peluquero":"Administrador"
+            )
+          }
       }
   ], [])
 
