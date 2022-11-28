@@ -28,7 +28,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/lagossully/TICS_II">
-    <img src="Imagenes/Imagen.png" alt="Logo" width="900" height="900">
+    <img src="Imagenes/Imagen.png" alt="Logo" width="800" height="600">
   </a>
 
   <h3 align="center">Página H&M Salón</h3>
