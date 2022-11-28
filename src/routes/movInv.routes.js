@@ -19,8 +19,8 @@ router.get('/:id', async (req, res) => {
 
 // ADD a new task
 router.post('/', async (req, res) => {
-  const { inventario, alto_bajo, cantidad, proveedor} = req.body;
-  const mov = new MovInv({inventario, alto_bajo, cantidad, proveedor});
+  const { inventario, alto_bajo, cantidad} = req.body;
+  const mov = new MovInv({inventario, alto_bajo, cantidad});
   // console.log(product)
   await mov.save();
   res.json({status: 'Movimiento Guardado'});
@@ -28,8 +28,8 @@ router.post('/', async (req, res) => {
 
 // UPDATE a new task
 router.put('/:id', async (req, res) => {
-  const {inventario, alto_bajo, cantidad, proveedor} = req.body;
-  const NewMov = { inventario, alto_bajo, cantidad, proveedor};
+  const {inventario, alto_bajo, cantidad} = req.body;
+  const NewMov = { inventario, alto_bajo, cantidad};
   await MovInv.findByIdAndUpdate(req.params.id, NewMov);
   res.json({status: 'Movimiento Actualizado'});
 });

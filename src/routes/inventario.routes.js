@@ -19,8 +19,8 @@ router.get('/:id', async (req, res) => {
 
 // ADD a new task
 router.post('/', async (req, res) => {
-  const { producto, cantidad, caduca } = req.body;
-  const inventario = new Inventario({producto, cantidad, caduca});
+  const { producto, cantidad, caduca, proveedor} = req.body;
+  const inventario = new Inventario({producto, cantidad, caduca, proveedor});
   // console.log(product)
   await inventario.save();
   res.json({status: 'Inventario Guardado'});
@@ -28,8 +28,8 @@ router.post('/', async (req, res) => {
 
 // UPDATE a new task
 router.put('/:id', async (req, res) => {
-  const {producto, cantidad, caduca} = req.body;
-  const NewInv = { producto, cantidad, caduca};
+  const {producto, cantidad, caduca, proveedor} = req.body;
+  const NewInv = { producto, cantidad, caduca, proveedor};
   await Inventario.findByIdAndUpdate(req.params.id, NewInv);
   res.json({status: 'Inventario Actualizado'});
 });

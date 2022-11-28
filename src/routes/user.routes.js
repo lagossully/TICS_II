@@ -20,7 +20,7 @@ router.get('/:id', async (req, res) => {
 
 // ADD a new task
 router.post('/', async (req, res) => {
-  const { nombre, rut, correo, pass, perfil } = req.body;
+  const { nombre, rut, correo, pass, perfil, horario } = req.body;
   bcrypt
     .hash(pass, 10)
     .then((hashedPassword) => {
@@ -30,7 +30,8 @@ router.post('/', async (req, res) => {
         rut: rut,
         correo: correo,
         pass: hashedPassword,
-        perfil: perfil
+        perfil: perfil,
+        horario: horario
       });
       user
         .save()
@@ -44,7 +45,7 @@ router.post('/', async (req, res) => {
 
 // UPDATE a new task
 router.put('/:id', async (req, res) => {
-  const { nombre, rut, correo, pass, perfil } = req.body;
+  const { nombre, rut, correo, pass, perfil, horario } = req.body;
   // bcrypt
   //   .hash(pass, 10)
   //   .then((hashedPassword) => {
@@ -59,7 +60,7 @@ router.put('/:id', async (req, res) => {
   //       console.log(req.params.id, user)
   //     res.json({status: 'Usuario Actualizado'});
   //   });
-  const newUser = {nombre, rut, correo, pass, perfil};
+  const newUser = {nombre, rut, correo, pass, perfil, horario};
   await Usuario.findByIdAndUpdate(req.params.id, newUser);
   res.json({status: 'Usuario Actualizado'});
 });

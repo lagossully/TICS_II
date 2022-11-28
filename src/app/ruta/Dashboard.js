@@ -36,16 +36,16 @@ function Dashboard (){
                         </Card>
                     </div>
 
-                    {/* <div className="col s12 m6">
+                    <div className="col s12 m6">
                         <Card>
                             <Card.Body>
-                                <Card.Title>Crear Producto</Card.Title>
+                                <Card.Title>Inventario</Card.Title>
                                 <Card.Text>
-                                    <Link to="/prod">Crear Producto</Link>
+                                    <Link to="/inv">Acceso a al inventario</Link>
                                 </Card.Text>
                             </Card.Body>
                         </Card>
-                    </div> */}
+                    </div>
                     
                     {/* <div className="col s12 m6">
                         <Card>

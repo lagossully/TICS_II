@@ -6,7 +6,8 @@ const UsuarioSchema = new Schema({
     rut: { type: String, require: true},
     correo: {type: String, require: true },
     pass: { type: String, require: true},
-    perfil: {type: String, require: true }
+    perfil: {type: String, require: true },
+    horario: {type: String, require: true }
 });
 
 // const UserSchema = new Schema({

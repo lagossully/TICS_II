@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Form, Button} from 'react-bootstrap';
 import Select from "react-select";
 import { useNavigate, Link} from "react-router-dom";
+import { MdOutlineLocalLaundryService } from "react-icons/md";
 
 function CrearUsuario (){
     const navigation = useNavigate();
@@ -11,29 +12,50 @@ function CrearUsuario (){
     const [pass, setPass] = React.useState("");
     const [mail, setMail] = React.useState("");
     const [perfil, setPerfil] = React.useState("1");
+    const [horario, setHorario] = React.useState([]);
 
     const onNameChange=(value)=>setName(value);
     const onRutChange=(value)=>setRut(value);
     const onPassChange=(value)=>setPass(value);
     const onMailChange=(value)=>setMail(value);
     const onPerfilChange=(value)=>setPerfil(value);
+    const onHorarioChange=(value)=>setHorario(value);
     
 
     const options =[
-        {
-            value:"0",
-            label:"Peluquero"
-        },{
-            value:"1",
-            label:"Administrador"
-        }]
+        {   value:"0",
+            label:"Peluquero"},
+        {   value:"1",
+            label:"Administrador"}]
+
+    const days =[
+        {   value:"0",
+            label: "Lunes"},
+        {   value:"1",
+            label: "Martes"},
+        {   value:"2",
+            label: "Miercoles"},
+        {   value:"3",
+            label: "Jueves"},
+        {   value:"4",
+            label: "Viernes"},
+        {   value:"5",
+            label: "Sabado"},
+        {   value:"6",
+            label: "Domingo"}]
+
+    React.useEffect(() => {
+        onHorarioChange(days);
+    },[]);
+
     const Handler = (e)=> {
         let message={
             nombre:name,
             rut:rut,
             correo:mail,
             pass:pass,
-            perfil:perfil.value
+            perfil:perfil.value,
+            horario:horario.map((item)=>item.value).join("")
         }
         fetch("/mod/user",{
             method:"POST",
@@ -98,8 +120,20 @@ function CrearUsuario (){
                     onChange={ opt => onPerfilChange(opt)}
                     options={options}
                 />
+                <Select
+                    defaultValue={days}
+                    isMulti
+                    placeholder="Selecciona el horario  "
+                    // value={horario}
+                    onChange={ opt => onHorarioChange(opt)}
+                    options={days}
+                    className="basic-multi-select"
+                    classNamePrefix="select"
+                />
+
                 <Button variant="info" onClick={Handler}>Crear usuario</Button>
-                <Button variant="info" onClick={() => navigation("/usuario")}>Cancelar</Button>
+                <Button variant="secondary" onClick={() => navigation("/usuario")}>Cancelar</Button>
+                {/* <Button variant="secondary" onClick={() => console.log(horario.map((item)=>item.value).join(""))}>this</Button> */}
                 
                 {/* <Link to={"../prod"} >try</Link>         */}
             </div>

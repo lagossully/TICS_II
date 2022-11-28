@@ -1,7 +1,7 @@
 import React, { Component, useCallback } from "react";
 import { Form, Button, Card, Col} from 'react-bootstrap';
 import { useNavigate, Link} from "react-router-dom";
-import Table from "./Tabla";
+import Tabla from "./Tabla";
 
 function UserLayout(){
     const navigation = useNavigate();
@@ -16,7 +16,7 @@ function UserLayout(){
             <div className="container">
                 <div className="row">
                     <div className="col s12 m6">
-                        <Table/>
+                        <Tabla/>
                     </div>
                 </div>
                 <div className="row">

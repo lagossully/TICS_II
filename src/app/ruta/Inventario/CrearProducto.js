@@ -53,7 +53,7 @@ function CrearProducto (){
             </nav>
            
             <div className="container">
-                <Form.Label htmlFor="ID">ID</Form.Label>
+                <Form.Label htmlFor="ID">Nombre Del Producto</Form.Label>
                 <Form.Control
                     
                     id="ID"
@@ -104,7 +104,8 @@ function CrearProducto (){
                     onChange={ opt => onPrecioChange(opt)}
                     options={options}
                 /> */}
-                <Button variant="info" onClick={Handler}>Crear Producto</Button>
+                <Button variant="info" onClick={()=> Handler()}>Crear Producto</Button>
+                <Button variant="secondary" onClick={()=> navigation("/inv")}>Cancelar</Button>
             </div>
         </div>
     )

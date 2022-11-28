@@ -33,7 +33,7 @@ function AsignarPeluquero(){
           .then(res => res.json())
           .then(data => {
             setData(data)
-            data.map((e)=>{opcionesPel.push({label:e.nombre, value:e.rut})})
+            data.map((e)=>{opcionesPel.push({label:e.nombre, value:e.rut, horario:e.horario})})
             setIsFetching(true)
             setData(opcionesPel)
           })
@@ -68,6 +68,7 @@ function AsignarPeluquero(){
         sessionStorage.setItem("telefono", telefono);
         
         sessionStorage.setItem("peluquero", peluquero.label);
+        sessionStorage.setItem("horario", peluquero.horario.split(""));
         sessionStorage.setItem("servicio", servicio.value);
         navigate("/agen")
     }
