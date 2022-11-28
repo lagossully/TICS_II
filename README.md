@@ -88,7 +88,7 @@ La solución planteada es crear una aplicación web que se planea para facilitar
 
 
 ### Construcción
-El modelo de arquitectura elegido es la arquitectura tipo $"$Cliente-Servidor" con el Stack MERN.
+El modelo de arquitectura elegido es la arquitectura tipo "Cliente-Servidor" con el Stack MERN.
 Las frameworks/librerías principales que se usaron:
 
 * [React][React-url]
