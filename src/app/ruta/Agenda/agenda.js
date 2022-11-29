@@ -75,7 +75,7 @@ function Calendary(){
         sessionStorage.setItem("fecha", value);
         sessionStorage.setItem("dia", value.split(" ")[0]);
         sessionStorage.setItem("hora", value.split(" ")[1]);
-        console.log("fecha",sessionStorage.getItem("fecha"),"servicio",sessionStorage.getItem("servicio"),"peluquero",sessionStorage.getItem("peluquero"),"horario",sessionStorage.getItem("horario"))
+        // console.log("fecha",sessionStorage.getItem("fecha"),"servicio",sessionStorage.getItem("servicio"),"peluquero",sessionStorage.getItem("peluquero"),"horario",sessionStorage.getItem("horario"))
         handleShow() 
         return(<></>
         )
@@ -83,8 +83,8 @@ function Calendary(){
     }
 
     const Handler = (value)=>{
-        console.log("fecha",sessionStorage.getItem("fecha"),"servicio",sessionStorage.getItem("servicio"),"peluquero",sessionStorage.getItem("peluquero"),
-        "nombre",sessionStorage.getItem("nombre"),"rut", sessionStorage.getItem("rut"),"telefono",sessionStorage.getItem("telefono"),"correo",sessionStorage.getItem("correo"))
+        // console.log("fecha",sessionStorage.getItem("fecha"),"servicio",sessionStorage.getItem("servicio"),"peluquero",sessionStorage.getItem("peluquero"),
+        // "nombre",sessionStorage.getItem("nombre"),"rut", sessionStorage.getItem("rut"),"telefono",sessionStorage.getItem("telefono"),"correo",sessionStorage.getItem("correo"))
         navigation("/gestionar")
         let message={ 
             nombre:sessionStorage.getItem("nombre"),

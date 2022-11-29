@@ -22,6 +22,12 @@ import InventoryLayout from "./ruta/Inventario/InvLayout";
 import CrearLote from "./ruta/Inventario/CrearLote";
 
 
+import GestionarAgenda from "./ruta/GestionarAgenda/GesAgenLayout";
+import AsignarAgenda from "./ruta/GestionarAgenda/Agendar";
+
+import Sandbox from "./ruta/test/Sandbox";
+
+
 
 function App (){
 
@@ -39,12 +45,19 @@ function App (){
         <Route path="prod" element={<CrearProducto/>} />
         <Route path="lot" element={<CrearLote/>} />
 
+
+        <Route path="gesag" element={<GestionarAgenda/>} />
+        <Route path="geapel" element={<AsignarAgenda/>} />
+
+
         <Route path="serv" element={<CrearServicio/>} />
 
         <Route path="agen" element={<Agenda/>} />
         <Route path="pel" element={<AsignarPeluquero/>} />
 
         <Route path="test" element={<Test/>} /> {/*vista de prueba*/}
+
+        <Route path="/chiste" element={<Sandbox/>} />
       </Routes>
     </BrowserRouter>
   )

@@ -38,4 +38,11 @@ router.delete('/:id', async (req, res) => {
   await Agenda.findByIdAndRemove(req.params.id);
   res.json({status: 'Agenda Eliminada'});
 });
+
+router.use('/findate/:fecha', async (req, res) => {
+  let value = req.params.fecha.split("h");
+  console.log(value[0].split("f").join("/")+" "+value[1])
+  const agenda = await Agenda.find({fecha:value[0].split("f").join("/")+" "+value[1]});
+      res.json(agenda);
+})
 module.exports = router;

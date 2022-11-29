@@ -1,0 +1,221 @@
+import React, { Component, useCallback, useState } from "react";
+import { Form, Button, Card, Col, Modal, Row, Accordion, AccordionButton} from 'react-bootstrap';
+import { useNavigate, Link} from "react-router-dom";
+import moment from "moment/moment";
+import { MdOutlineArrowForwardIos, MdOutlineArrowBackIosNew } from 'react-icons/md';
+import { ExactDay, FormatHour } from "../utils/time";
+
+
+
+function Calendary(){
+    const navigation = useNavigate();
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
+    const [data, setData] = React.useState([]);
+    const [isFetching, setIsFetching] = React.useState(false);
+
+    
+    const [days, setDays] = useState([]);
+    const [nextWeek, setNextWeek] = useState(0);
+    
+
+    React.useEffect(() => {
+        let filler=[]
+        for (let i = 0; i < 7; i++) {
+            filler.push(moment().add(i+nextWeek*7, 'days').format('YYYY/MM/DD hh:mm'));
+        }
+        setDays(filler)
+    },[nextWeek]);
+
+    React.useEffect(() => {
+        fetch("/mod/agenda")
+          .then(res => res.json())
+          .then(data => {
+            setData(data)
+            console.log(data)
+            setIsFetching(true)
+          })
+          .catch(err => console.error(err))
+      }, []);
+    const today = moment().format('DD MM YYYY hh:mm:ss');
+    const dayhour = ["900", "930", "1000", "1030", "1100", "1130"];
+    
+    const check = (hour)=>{
+        const data2=[]
+        data.map((e)=>{data2.push(e.fecha)})
+        if(data2.includes(hour)){
+            return false
+            // console.log(hour)
+        }
+        else{ return true}
+    }
+
+    const [dataAgenda, setDataAgenda] = useState([]);
+
+    const ListServicios = (fecha)=>{ //2022/11/29 1030
+        
+        sessionStorage.setItem("fecha", fecha);
+        let request = fecha.split(" ")[0].split("/").join("f") +"h"+ fecha.split(" ")[1]
+        fetch("/mod/agenda/findate/"+request,{
+            method:"GET",
+            headers:{
+                "Accept":"application/json",
+                "Content-Type":"application/json",
+            }
+        })
+          .then(res => res.json())
+          .then(data => {
+            console.log(data)
+            setDataAgenda(data)
+          })
+          .catch(err => console.error(err))
+          handleShow()
+    }
+
+    const Delete = (id) => {
+        // console.log(id)
+        fetch("/mod/agenda/"+id,{
+            method:"DELETE",
+            headers:{
+                "Accept":"application/json",
+                "Content-Type":"application/json",
+            },
+        })
+            .then(res => {console.log(res); navigation("/gesag")})
+            .catch(err => console.error(err))
+        
+        e.preventDefault();
+    }
+
+
+
+
+    if(isFetching === false){
+        return(
+            <div>
+                <h1>Loading...</h1>
+            </div>
+        )
+    }
+    else{
+    return(
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <th className="col-width-5 th-prox-semana cp" data-fecha=" 2022/11/26 "><i
+                                className="fa fa-chevron-left" aria-hidden="true"><Button size="sm" onClick={()=>setNextWeek(nextWeek-1)} disabled={nextWeek <1}>{MdOutlineArrowBackIosNew()}</Button> </i></th>
+                                {/* {days.map((day) => (<th className="col-width-10  text-center active">{day.split(" ")[0]}<br/><small>21-11</small></th>))} */}
+                        {/* {days.map((day) => (<th className="col-width-10  text-center active" >{day.split(" ")[0]}<br/><small></small></th>))} */}
+                        {days.map((day) => (<th className="col-width-10  text-center active" >{ExactDay(moment(day.split(" ")[0]).day())}<br/><small>{day.split(" ")[0]}</small></th>))}
+                        <th className="col-width-5 th-prev-semana cp" data-fecha=" 2022/12/03 "><i
+                                className="fa fa-chevron-right" aria-hidden="true"><Button size="sm" onClick={()=>setNextWeek(nextWeek+1)} disabled={nextWeek >8}>{MdOutlineArrowForwardIos()}</Button> </i></th>
+                    </tr>
+                    
+                    {dayhour.map((hour) => (
+                        <tr>
+                            <td className="col-width-5 text-right">
+                                <div className="hidden-xs">{FormatHour(hour)}</div>
+                            </td>
+                            {days.map((day) =>(
+                                <td className="col-width-10 border-center-calendario text-center va-middle ">
+                                    <div className="visible-xs">{FormatHour(hour)}</div>
+                                    
+                                    {check(day.split(" ")[0]+" "+hour)? (
+                                    <a className="btn-nueva-persona"><Link onClick={()=>ListServicios(day.split(" ")[0]+" "+hour)}>Disponible</Link></a>
+                                    ):(
+                                    <span className="label label-default" ><Link onClick={()=>ListServicios(day.split(" ")[0]+" "+hour)}>Asignado</Link></span>)}
+                                </td>)
+                                )}
+                            <td className="col-width-5 border-rigth-calendario"></td>
+                        </tr>
+                    ))}
+                </thead>
+            </table>
+            <Modal size={"lg"} show={show} onHide={handleClose} centered >
+                <Modal.Header closeButton>
+                    <Modal.Title>Resumen</Modal.Title>    
+                </Modal.Header>
+                    <Modal.Body>
+                            <Accordion>
+                            {dataAgenda[0]?  
+                            <Accordion.Item eventKey="0">
+                                <Accordion.Header>Horario Asignado</Accordion.Header>
+                                <Accordion.Body>Peluquero: {dataAgenda[0].usuario} </Accordion.Body>
+                                <Accordion.Body>Cliente: {dataAgenda[0].cliente} </Accordion.Body>
+                                <Accordion.Body>Servicios: {dataAgenda[0].servicio}  </Accordion.Body>
+                                <Accordion.Body><Link>Modificar</Link> <Link onClick={()=>Delete(dataAgenda[0]._id)}>Eliminar</Link></Accordion.Body>
+                            </Accordion.Item>: 
+                            <Accordion.Item eventKey="0">
+                                <Accordion.Header>Horario Disponible</Accordion.Header>
+                                <Accordion.Body><Link to="/geapel">Asignar</Link></Accordion.Body>
+                            </Accordion.Item>}
+
+                            {dataAgenda[1]? 
+                            <Accordion.Item eventKey="1">
+                                <Accordion.Header>Horario Asignado</Accordion.Header>
+                                <Accordion.Body>Peluquero: {dataAgenda[1].usuario} </Accordion.Body>
+                                <Accordion.Body>Cliente: {dataAgenda[1].cliente} </Accordion.Body>
+                                <Accordion.Body>Servicios: {dataAgenda[1].servicio}  </Accordion.Body>
+                                <Accordion.Body><Link>Modificar</Link> <Link onClick={()=>Delete(dataAgenda[1]._id)}>Eliminar</Link></Accordion.Body>
+                            </Accordion.Item>: 
+                            <Accordion.Item eventKey="1">
+                                <Accordion.Header>Horario Disponible</Accordion.Header>
+                                <Accordion.Body><Link to="/geapel">Asignar</Link></Accordion.Body>
+                            </Accordion.Item>}
+
+                            {dataAgenda[2]? 
+                            <Accordion.Item eventKey="2">
+                                <Accordion.Header>Horario Asignado</Accordion.Header>
+                                <Accordion.Body>Peluquero: {dataAgenda[2].usuario} </Accordion.Body>
+                                <Accordion.Body>Cliente: {dataAgenda[2].cliente} </Accordion.Body>
+                                <Accordion.Body>Servicios: {dataAgenda[2].servicio}  </Accordion.Body>
+                                <Accordion.Body><Link>Modificar</Link> <Link onClick={()=>Delete(dataAgenda[2]._id)}>Eliminar</Link></Accordion.Body>
+                            </Accordion.Item>: 
+                            <Accordion.Item eventKey="2">
+                                <Accordion.Header>Horario Disponible</Accordion.Header>
+                                <Accordion.Body><Link to="/geapel">Asignar</Link></Accordion.Body>
+                            </Accordion.Item>}
+
+                            {dataAgenda[3]? 
+                            <Accordion.Item eventKey="3">
+                                <Accordion.Header>Horario Asignado</Accordion.Header>
+                                <Accordion.Body>Peluquero: {dataAgenda[3].usuario} </Accordion.Body>
+                                <Accordion.Body>Cliente: {dataAgenda[3].cliente} </Accordion.Body>
+                                <Accordion.Body>Servicios: {dataAgenda[3].servicio}  </Accordion.Body>
+                                <Accordion.Body><Link>Modificar</Link> <Link onClick={()=>Delete(dataAgenda[3]._id)}>Eliminar</Link></Accordion.Body>
+                            </Accordion.Item>: 
+                            <Accordion.Item eventKey="3">
+                                <Accordion.Header>Horario Disponible</Accordion.Header>
+                                <Accordion.Body><Link to="/geapel">Asignar</Link></Accordion.Body>
+                            </Accordion.Item>}
+                        </Accordion>
+                    </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Cancelar
+                    </Button>
+                    <Button variant="primary" onClick={handleClose}>
+                        sample
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+        </div>
+    )}
+}
+
+
+function Calendario(){
+    const navigation = useNavigate();
+    // console.log(moment().format('L'))
+    return(
+        <div>
+        <Calendary/>
+        </div>
+    )
+}
+
+export default Calendario;

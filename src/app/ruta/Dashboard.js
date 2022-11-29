@@ -28,14 +28,16 @@ function Dashboard (){
                     <div className="col s12 m6">
                         <Card>
                             <Card.Body>
-                                <Card.Title>Pedir Hora</Card.Title>
+                                <Card.Title>Pedir Hora (POR CLIENTE)</Card.Title>
                                 <Card.Text>
                                     <Link to="/pel">Se realiza la peticion de la hora</Link>
                                 </Card.Text>
                             </Card.Body>
                         </Card>
                     </div>
-
+                
+                </div>
+                <div className="row">
                     <div className="col s12 m6">
                         <Card>
                             <Card.Body>
@@ -47,16 +49,17 @@ function Dashboard (){
                         </Card>
                     </div>
                     
-                    {/* <div className="col s12 m6">
+                    <div className="col s12 m6">
                         <Card>
                             <Card.Body>
-                                <Card.Title>Crear Servicio</Card.Title>
+                                <Card.Title>Gestionar Agenda (USUARIOS)</Card.Title>
                                 <Card.Text>
-                                    <Link to="/serv">Crear Servicio</Link>
+                                    <Link to="/gesag">Gestionar Agenda</Link>
                                 </Card.Text>
                             </Card.Body>
                         </Card>
-                    </div> */}
+                    </div>
+                </div>
                     {/* <div className="col s12 m6">
                         <Card>
                             <Card.Body>
@@ -67,7 +70,6 @@ function Dashboard (){
                             </Card.Body>
                         </Card>
                     </div> */}
-                </div>
                 {/* <div className="row">
                 </div> */}
             </div>
