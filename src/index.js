@@ -29,8 +29,6 @@ app.use("/mod/agenda", require("./routes/agenda.routes"));
 app.use("/mod/servicio", require("./routes/servicio.routes"));
 
 
-app.use("/mod/reqserv", require("./routes/serviciotask.routes"));
-
 
 //static files
 // console.log(path.join(__dirname, "public"))
