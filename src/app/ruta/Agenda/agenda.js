@@ -60,12 +60,23 @@ function Calendary(){
     const dayhour = ["900", "930", "1000", "1030", "1100", "1130"];
     
     const check = (hour)=>{
-        const data2=[]
-        data.map((e)=>{data2.push(e.fecha)})
-        if(data2.includes(hour)){
+        let data2=[];
+        let data3=[];
+        let count = 0;
+        let count2 = 0;
+        data.map((e)=>{data2.push(e.fecha)});
+        data.map((e)=>{(e.fecha === hour)? (e.usuario === sessionStorage.getItem("peluquero"))? count2++ : null  : null})
+        // data.map((e)=>{data2.push(e.peluquero)});
+        data2.forEach((e)=>{ e === hour ? count++ : null });
+        // if(data2.includes(hour)){
+        //     return false
+        // }
+        // else{ return true}
+        if (count>=4 || count2>=1){
             return false
         }
-        else{ return true}
+        else{ return true
+        }
     }
 
     const Gestionar = (value)=>{
@@ -85,23 +96,43 @@ function Calendary(){
     const Handler = (value)=>{
         // console.log("fecha",sessionStorage.getItem("fecha"),"servicio",sessionStorage.getItem("servicio"),"peluquero",sessionStorage.getItem("peluquero"),
         // "nombre",sessionStorage.getItem("nombre"),"rut", sessionStorage.getItem("rut"),"telefono",sessionStorage.getItem("telefono"),"correo",sessionStorage.getItem("correo"))
-        navigation("/gestionar")
+        // navigation("/gestionar")
         let message={ 
             nombre:sessionStorage.getItem("nombre"),
             rut:sessionStorage.getItem("rut"),
             correo:sessionStorage.getItem("correo"),
             telefono:sessionStorage.getItem("telefono")
         }
-        fetch("/mod/client",{ //agrgar cliente
-            method:"POST",
-            headers:{
-                "Accept":"application/json",
-                "Content-Type":"application/json",
-            },
-            body: JSON.stringify(message)
-        })
-            .then(res => console.log(res))
-            .catch(err => console.error(err))
+        
+        switch(value){
+            case "1":
+                fetch("/mod/client",{ //agrgar cliente
+                    method:"POST",
+                    headers:{
+                        "Accept":"application/json",
+                        "Content-Type":"application/json",
+                    },
+                    body: JSON.stringify(message)
+                })
+                    .then(res => console.log(res))
+                    .catch(err => console.error(err))
+                
+                break;
+            case "2":
+                fetch("/mod/client/"+sessionStorage.getItem("clid"),{
+                    method:"PUT",
+                    headers:{
+                        "Accept":"application/json",
+                        "Content-Type":"application/json",
+                    },
+                    body: JSON.stringify(message)
+                })
+                    .then(res => console.log(res))
+                    .catch(err => console.error(err))
+
+            default:
+                break;
+            }
         
         message={
             usuario:sessionStorage.getItem("peluquero"),
@@ -146,7 +177,7 @@ function Calendary(){
                         <Button variant="secondary" onClick={handleClose}>
                             Cancelar
                         </Button>
-                        <Button variant="primary" onClick={Handler}>
+                        <Button variant="primary" onClick={()=>Handler(sessionStorage.getItem("next"))}>
                             Guardar Cita
                         </Button>
                     </Modal.Footer>
@@ -185,6 +216,7 @@ function Calendary(){
                     ))}
                 </thead>
             </table>
+            <Button onClick={()=>console.log(data, sessionStorage.getItem("peluquero"))}>SSSSSSSSSSs</Button>
         </div>
     )}
 }

@@ -2,6 +2,7 @@ import React, { Component, useCallback } from "react";
 import { Form, Button, Card, Col} from 'react-bootstrap';
 import { useNavigate, Link} from "react-router-dom";
 import Select from "react-select";
+import moment from "moment/moment";
 
 function AsignarAgenda(){
     const navigate = useNavigate();
@@ -11,7 +12,6 @@ function AsignarAgenda(){
 
     const [peluquero, setPeluquero] = React.useState("");
     const onPeluSelect=(value)=>{setPeluquero(value), console.log(value)};
-    const opcionesPel=[]
 
 
     
@@ -34,7 +34,15 @@ function AsignarAgenda(){
           .then(res => res.json())
           .then(data => {
             setData(data)
-            data.map((e)=>{opcionesPel.push({label:e.nombre, value:e.rut, horario:e.horario})})
+            let opcionesPel = []
+            let temp = sessionStorage.getItem("peluqueros")
+            // data.map((e)=>{opcionesPel.push({label:e.nombre, value:e.rut, horario:e.horario})})
+            data.map((e)=>{
+                if(e.horario.split("").includes(moment(sessionStorage.getItem("fecha").split(" ")[0]).days().toString()) && !temp.split("/").includes(e.nombre)){
+                    console.log(temp.split("/").includes(e.nombre))
+                    opcionesPel.push({label:e.nombre, value:e.rut, horario:e.horario})
+                }
+            })
             setIsFetching(true)
             setData(opcionesPel)
           })
@@ -48,13 +56,14 @@ function AsignarAgenda(){
 
     const [servicio, setServicio] = React.useState("");
     const onServSelect=(value)=>{setServicio(value), console.log(value)};
-    const opcionesSer=[]
+    // const opcionesSer=[]
 
     React.useEffect(() => {
         fetch("/mod/servicio")
           .then(res => res.json())
           .then(data => {
             // setData2(data)
+            let opcionesSer = []
             data.map((e)=>{opcionesSer.push({label:e.nombre, value:e.nombre})})
             setIsFetching2(true)
             setData2(opcionesSer)
@@ -100,6 +109,16 @@ function AsignarAgenda(){
 
     }
 
+    const Thisthis = (value)=>{
+        // console.log("fecha", toString(moment(sessionStorage.getItem("fecha").split(" ")[0]).days()))
+        // console.log("data",data[0].horario.split(""))
+        // console.log("data",data[0].horario.split("").includes(moment(sessionStorage.getItem("fecha").split(" ")[0]).days().toString()))
+        // console.log(data,data[1].horario.split("").includes(moment(sessionStorage.getItem("fecha").split(" ")[0]).day()))
+        console.log(sessionStorage.getItem("peluqueros"))
+
+    }
+
+
     if (isFetching === false || isFetching2 === false){
         return(
             <div>
@@ -135,6 +154,7 @@ function AsignarAgenda(){
                 />
                 <Form.Text id="rut" muted></Form.Text>
                 
+                
                 <Form.Label htmlFor="correo">correo</Form.Label>
                 <Form.Control
                     
@@ -169,6 +189,7 @@ function AsignarAgenda(){
                     />
                 </div>
                 <Button variant="primary" type="submit" onClick={() => Handler()}>Siguiente</Button> 
+                <Button variant="primary" type="submit" onClick={() =>(Thisthis())}>this</Button> 
             </div>
         </div>
     )}

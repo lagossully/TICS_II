@@ -8,7 +8,7 @@ import { ExactDay, FormatHour } from "../utils/time";
 
 
 function Calendary(){
-    const navigation = useNavigate();
+    const navigate = useNavigate();
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -35,7 +35,7 @@ function Calendary(){
           .then(res => res.json())
           .then(data => {
             setData(data)
-            console.log(data)
+            // console.log(data)
             setIsFetching(true)
           })
           .catch(err => console.error(err))
@@ -68,8 +68,11 @@ function Calendary(){
         })
           .then(res => res.json())
           .then(data => {
-            console.log(data)
+            // console.log(data)
             setDataAgenda(data)
+            let temp=[]
+            data.map((e)=>{temp.push(e.usuario)})
+            sessionStorage.setItem("peluqueros", temp.join("/"))
           })
           .catch(err => console.error(err))
           handleShow()
@@ -84,13 +87,20 @@ function Calendary(){
                 "Content-Type":"application/json",
             },
         })
-            .then(res => {console.log(res); navigation("/gesag")})
+            .then(res => {console.log(res); navigate("/gesag")})
             .catch(err => console.error(err))
         
         e.preventDefault();
     }
 
 
+    // const Thisthis= (asd) =>{
+        // let pelAsig=[]
+        // asd.map(e=>{pelAsig.push(e.usuario)})
+        // sessionStorage.setItem("peluquero2", pelAsig.join(" "));
+        // navigate("/geapel");
+
+    // }
 
 
     if(isFetching === false){
@@ -125,7 +135,7 @@ function Calendary(){
                                     <div className="visible-xs">{FormatHour(hour)}</div>
                                     
                                     {check(day.split(" ")[0]+" "+hour)? (
-                                    <a className="btn-nueva-persona"><Link onClick={()=>ListServicios(day.split(" ")[0]+" "+hour)}>Disponible</Link></a>
+                                    <div className="btn-nueva-persona"><Link onClick={()=>ListServicios(day.split(" ")[0]+" "+hour)}>Disponible</Link></div>
                                     ):(
                                     <span className="label label-default" ><Link onClick={()=>ListServicios(day.split(" ")[0]+" "+hour)}>Asignado</Link></span>)}
                                 </td>)
@@ -152,6 +162,7 @@ function Calendary(){
                             <Accordion.Item eventKey="0">
                                 <Accordion.Header>Horario Disponible</Accordion.Header>
                                 <Accordion.Body><Link to="/geapel">Asignar</Link></Accordion.Body>
+                                {/* <Accordion.Body><Link to="/geapel">Asignar</Link></Accordion.Body> */}
                             </Accordion.Item>}
 
                             {dataAgenda[1]? 
@@ -190,6 +201,7 @@ function Calendary(){
                             </Accordion.Item>: 
                             <Accordion.Item eventKey="3">
                                 <Accordion.Header>Horario Disponible</Accordion.Header>
+                                {/* <Accordion.Body><Link to="/geapel">Asignar</Link></Accordion.Body> */}
                                 <Accordion.Body><Link to="/geapel">Asignar</Link></Accordion.Body>
                             </Accordion.Item>}
                         </Accordion>

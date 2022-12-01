@@ -38,4 +38,11 @@ router.delete('/:id', async (req, res) => {
   await Cliente.findByIdAndRemove(req.params.id);
   res.json({status: 'Cliente Eliminado'});
 });
+
+router.use('/getcliente/:client', async (req, res) => {
+  // let value = req.params.fecha.split("h");
+  // console.log(value[0].split("f").join("/")+" "+value[1])
+  const cliente = await Cliente.find({rut:req.params.client});
+      res.json(cliente);
+})
 module.exports = router;

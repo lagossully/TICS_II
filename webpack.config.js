@@ -9,12 +9,14 @@ module.exports = {
         rules: [
             {
                 use: "babel-loader",
-                test: /\.js$/,
+                test: /\.js$/ || /\.js.map$/,
                 exclude: /node_modules/
             }
         ]
     },
     plugins: [
 		new NodePolyfillPlugin()
-	]
+	],
+    
+    ignoreWarnings: [{message:/DevTools failed to load source map/}],
 };
