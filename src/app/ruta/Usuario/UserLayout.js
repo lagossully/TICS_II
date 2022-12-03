@@ -10,7 +10,7 @@ function UserLayout(){
         <div>
             <nav className="light-blue darken-4">
                 <div className="container">
-                    <a className="brand-logo" href="" onClick={() => navigation("/")}>HM Salon</a>
+                    <a className="brand-logo" href="" onClick={() => navigation("/menuprincipal")}>HM Salon</a>
                 </div>
             </nav>
             <div className="container">
@@ -20,7 +20,7 @@ function UserLayout(){
                     </div>
                 </div>
                 <div className="row">
-                    <Button variant="primary" onClick={() => navigation("/user")}>Crear Usuario</Button>
+                    <Button variant="primary" onClick={() => navigation("/crearusuario")}>Crear Usuario</Button>
                 </div>
             </div>
         </div>

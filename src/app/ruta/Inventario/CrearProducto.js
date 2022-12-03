@@ -48,7 +48,7 @@ function CrearProducto (){
         <div>
             <nav className="light-blue darken-4">
                 <div className="container">
-                    <a className="brand-logo" href="" onClick={() => navigation("/")}>HM Salon</a>
+                    <a className="brand-logo" href="" onClick={() => navigation("/menuprincipal")}>HM Salon</a>
                 </div>
             </nav>
            
@@ -105,7 +105,7 @@ function CrearProducto (){
                     options={options}
                 /> */}
                 <Button variant="info" onClick={()=> Handler()}>Crear Producto</Button>
-                <Button variant="secondary" onClick={()=> navigation("/inv")}>Cancelar</Button>
+                <Button variant="secondary" onClick={()=> navigation("/inventario")}>Cancelar</Button>
             </div>
         </div>
     )

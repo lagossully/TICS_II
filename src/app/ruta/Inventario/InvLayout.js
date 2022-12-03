@@ -16,7 +16,7 @@ function InventoryLayout(){
         <div>
             <nav className="light-blue darken-4">
                 <div className="container">
-                    <a className="brand-logo" href="" onClick={() => navigation("/")}>HM Salon</a>
+                    <a className="brand-logo" href="" onClick={() => navigation("/menuprincipal")}>HM Salon</a>
                 </div>
             </nav>
             <Card>

@@ -62,7 +62,7 @@ function Tabla (){
           Cell: (props) => {
             const {value, row}=props;
             return(
-              <Link to={"/mod"} onClick={()=>{sessionStorage.setItem("temp",row.original._id) 
+              <Link to={"/modificarusuario"} onClick={()=>{sessionStorage.setItem("temp",row.original._id) 
                                               sessionStorage.setItem("modnom",row.original.nombre) 
                                               sessionStorage.setItem("modrut",row.original.rut) 
                                               sessionStorage.setItem("modmail",row.original.correo) 

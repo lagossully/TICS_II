@@ -87,7 +87,7 @@ function Calendary(){
                 "Content-Type":"application/json",
             },
         })
-            .then(res => {console.log(res); navigate("/gesag")})
+            .then(res => {console.log(res); navigate("/gestionaragenda")})
             .catch(err => console.error(err))
         
         e.preventDefault();
@@ -161,7 +161,7 @@ function Calendary(){
                             </Accordion.Item>: 
                             <Accordion.Item eventKey="0">
                                 <Accordion.Header>Horario Disponible</Accordion.Header>
-                                <Accordion.Body><Link to="/geapel">Asignar</Link></Accordion.Body>
+                                <Accordion.Body><Link to="/asignaragenda">Asignar</Link></Accordion.Body>
                                 {/* <Accordion.Body><Link to="/geapel">Asignar</Link></Accordion.Body> */}
                             </Accordion.Item>}
 
@@ -175,7 +175,7 @@ function Calendary(){
                             </Accordion.Item>: 
                             <Accordion.Item eventKey="1">
                                 <Accordion.Header>Horario Disponible</Accordion.Header>
-                                <Accordion.Body><Link to="/geapel">Asignar</Link></Accordion.Body>
+                                <Accordion.Body><Link to="/asignaragenda">Asignar</Link></Accordion.Body>
                             </Accordion.Item>}
 
                             {dataAgenda[2]? 
@@ -188,7 +188,7 @@ function Calendary(){
                             </Accordion.Item>: 
                             <Accordion.Item eventKey="2">
                                 <Accordion.Header>Horario Disponible</Accordion.Header>
-                                <Accordion.Body><Link to="/geapel">Asignar</Link></Accordion.Body>
+                                <Accordion.Body><Link to="/asignaragenda">Asignar</Link></Accordion.Body>
                             </Accordion.Item>}
 
                             {dataAgenda[3]? 
@@ -202,7 +202,7 @@ function Calendary(){
                             <Accordion.Item eventKey="3">
                                 <Accordion.Header>Horario Disponible</Accordion.Header>
                                 {/* <Accordion.Body><Link to="/geapel">Asignar</Link></Accordion.Body> */}
-                                <Accordion.Body><Link to="/geapel">Asignar</Link></Accordion.Body>
+                                <Accordion.Body><Link to="/asignaragenda">Asignar</Link></Accordion.Body>
                             </Accordion.Item>}
                         </Accordion>
                     </Modal.Body>

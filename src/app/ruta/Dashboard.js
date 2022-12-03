@@ -17,11 +17,11 @@ function Dashboard (){
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="" onClick={() => navigation("/inventario")}>Inventario</Nav.Link>
-                        <Nav.Link href="" onClick={() => navigation("/ventas")}>Ventas</Nav.Link>
-                        <Nav.Link href="" onClick={() => navigation("/clientes")}>Clientes</Nav.Link>
-                        <Nav.Link href="" onClick={() => navigation("/empleados")}>Empleados</Nav.Link>
-                        <Nav.Link href="" onClick={() => navigation("/reportes")}>Reportes</Nav.Link>
+                        {/* <Nav.Link href="" onClick={() => navigation("/inventario")}>Inventario</Nav.Link>
+                        <Nav.Link href="" onClick={() => navigation("/ventas")}>Ventas</Nav.Link> */}
+                        <Nav.Link href="" onClick={() => navigation("/")}>Portada</Nav.Link>
+                        <Nav.Link href="" onClick={() => navigation("/sandbox")}>Sandbox</Nav.Link>
+                        <Nav.Link href="" onClick={() => navigation("/asignarhora")}>Pedir Cita (Usuario)</Nav.Link>
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
@@ -43,8 +43,8 @@ function Dashboard (){
                                 </Card.Text>
                             </Card.Body>
                         </Card>
-                    </div>
-                    <div className="col s12 m6">
+                    {/* </div> */}
+                    {/* <div className="col s12 m6">
                         <Card>
                             <Card.Body>
                                 <Card.Title>Pedir Hora (POR CLIENTE)</Card.Title>
@@ -53,16 +53,16 @@ function Dashboard (){
                                 </Card.Text>
                             </Card.Body>
                         </Card>
-                    </div>
+                    </div> */}
                 
                 </div>
-                <div className="row">
+                {/* <div className="row"> */}
                     <div className="col s12 m6">
                         <Card>
                             <Card.Body>
                                 <Card.Title>Inventario</Card.Title>
                                 <Card.Text>
-                                    <Link to="/inv">Acceso a al inventario</Link>
+                                    <Link to="/inventario">Acceso a al inventario</Link>
                                 </Card.Text>
                             </Card.Body>
                         </Card>
@@ -71,9 +71,9 @@ function Dashboard (){
                     <div className="col s12 m6">
                         <Card>
                             <Card.Body>
-                                <Card.Title>Gestionar Agenda (USUARIOS)</Card.Title>
+                                <Card.Title>Gestionar Agenda</Card.Title>
                                 <Card.Text>
-                                    <Link to="/gesag">Gestionar Agenda</Link>
+                                    <Link to="/gestionaragenda">Gestionar Agenda</Link>
                                 </Card.Text>
                             </Card.Body>
                         </Card>

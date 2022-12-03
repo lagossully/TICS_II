@@ -83,7 +83,7 @@ function TablaInventario (){
       <>
           <Table columns={columns} data={data}/>
           <div className="row">
-              <Button variant="primary" onClick={() => navigation("/lot")}>Agregar Lote</Button>
+              <Button variant="primary" onClick={() => navigation("/crearlote")}>Agregar Lote</Button>
           </div>
       </>
     )

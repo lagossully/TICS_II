@@ -49,7 +49,7 @@ function CrearLote (){
             body: JSON.stringify(message)
         })
             .then(res => console.log(res))
-                navigation("/inv")
+                navigation("/inventario")
             .catch(err => console.error(err))
         e.preventDefault();
     }
@@ -66,7 +66,7 @@ function CrearLote (){
         <div>
             <nav className="light-blue darken-4">
                 <div className="container">
-                    <a className="brand-logo" href="" onClick={() => navigation("/")}>HM Salon</a>
+                    <a className="brand-logo" href="" onClick={() => navigation("/menuprincipal")}>HM Salon</a>
                 </div>
             </nav>
            
@@ -104,7 +104,7 @@ function CrearLote (){
                 />  
                 <Form.Text id="proveedor" muted></Form.Text>
                 <Button variant="info" onClick={()=> Handler()}>Crear lote</Button>
-                <Button variant="secondary" onClick={()=> navigation("/inv")}>Cancelar</Button>
+                <Button variant="secondary" onClick={()=> navigation("/inventario")}>Cancelar</Button>
             </div>
         </div>
     )}

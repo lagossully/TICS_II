@@ -166,7 +166,7 @@ function AsignarPeluquero(){
                 sessionStorage.setItem("servicio", servicio.value);
                 // navigate("/agen");
             default:
-                navigate("/agen");
+                navigate("/pedirhora");
         }
 
 
@@ -186,7 +186,7 @@ function AsignarPeluquero(){
         <>
             <nav className="light-blue darken-4">
                 <div className="container">
-                    <a className="brand-logo" href="" onClick={() => navigate("/")}>HM Salon</a>
+                    <a className="brand-logo" href="" onClick={() => navigate("/menuprincipal")}>HM Salon</a>
                 </div>
             </nav>
             <Container>
@@ -251,7 +251,7 @@ function AsignarPeluquero(){
                         {/* <Button onClick={()=> console.log(validate(rut))}> asdasdasd</Button> */}
                     </div>
                 </Collapse>
-                {open3? <Button onClick={()=>navigate("/")}>Cancelar</Button> : null}
+                {open3? <Button onClick={()=>navigate("/menuprincipal")}>Cancelar</Button> : null}
                 {(next===3)? <Button onClick={()=>NextStep()} disabled={(peluqueroValidate 
                 || servicioValidate)}>Siguiente</Button> : (next===1 || next===2)?
                     <Button variant="primary" type="submit" onClick={() => NextStep()} disabled={

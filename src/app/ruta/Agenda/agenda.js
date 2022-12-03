@@ -148,7 +148,7 @@ function Calendary(){
             },
             body: JSON.stringify(message)
         })
-            .then(res => {console.log(res), navigation("/")})
+            .then(res => {console.log(res), navigation("/menuprincipal")})
             .catch(err => console.error(err))
         
 
@@ -230,7 +230,7 @@ function Agenda(){
         <div>
         <nav className="light-blue darken-4">
             <div className="container">
-                <a className="brand-logo" href="" onClick={() => navigation("/")}>HM Salon</a>
+                <a className="brand-logo" href="" onClick={() => navigation("/menuprincipal")}>HM Salon</a>
             </div>
         </nav>
         <Calendary/>

@@ -26,6 +26,7 @@ import GestionarAgenda from "./ruta/GestionarAgenda/GesAgenLayout";
 import AsignarAgenda from "./ruta/GestionarAgenda/Agendar";
 
 import Sandbox from "./ruta/test/Sandbox";
+import Portada from "./ruta/Portada";
 
 
 
@@ -35,29 +36,31 @@ function App (){
   return(
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Dashboard/>} />
+        
+      <Route path="/" element={<Portada/>} />
+        <Route path="menuprincipal" element={<Dashboard/>} />
 
         <Route path="usuario" element={<UserLayout/>} />
-        <Route path="mod" element={<ModificarUsuario/>} />
-        <Route path="user" element={<CrearUsuario/>} />
+        <Route path="modificarusuario" element={<ModificarUsuario/>} />
+        <Route path="crearusuario" element={<CrearUsuario/>} />
 
-        <Route path="inv" element={<InventoryLayout/>} />
-        <Route path="prod" element={<CrearProducto/>} />
-        <Route path="lot" element={<CrearLote/>} />
-
-
-        <Route path="gesag" element={<GestionarAgenda/>} />
-        <Route path="geapel" element={<AsignarAgenda/>} />
+        <Route path="inventario" element={<InventoryLayout/>} />
+        <Route path="agregarproducto" element={<CrearProducto/>} />
+        <Route path="crearlote" element={<CrearLote/>} />
 
 
-        <Route path="serv" element={<CrearServicio/>} />
+        <Route path="gestionaragenda" element={<GestionarAgenda/>} />
+        <Route path="asignaragenda" element={<AsignarAgenda/>} />
 
-        <Route path="agen" element={<Agenda/>} />
-        <Route path="pel" element={<AsignarPeluquero/>} />
+
+        <Route path="crearservicio" element={<CrearServicio/>} />
+
+        <Route path="pedirhora" element={<Agenda/>} />
+        <Route path="asignarhora" element={<AsignarPeluquero/>} />
 
         <Route path="test" element={<Test/>} /> {/*vista de prueba*/}
 
-        <Route path="/chiste" element={<Sandbox/>} />
+        <Route path="/sandbox" element={<Sandbox/>} />
       </Routes>
     </BrowserRouter>
   )

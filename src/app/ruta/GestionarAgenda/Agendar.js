@@ -103,7 +103,7 @@ function AsignarAgenda(){
             },
             body: JSON.stringify(message)
         })
-            .then(res => {console.log(res), navigate("/gesag")})
+            .then(res => {console.log(res), navigate("/gestionaragenda")})
             .catch(err => console.error(err))
         
 
@@ -131,7 +131,7 @@ function AsignarAgenda(){
         <div>
             <nav className="light-blue darken-4">
                 <div className="container">
-                    <a className="brand-logo" href="" onClick={() => navigate("/")}>HM Salon</a>
+                    <a className="brand-logo" href="" onClick={() => navigate("/menuprincipal")}>HM Salon</a>
                 </div>
             </nav>
             <div className="container">
