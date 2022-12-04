@@ -151,10 +151,10 @@ Con la vista del administrador blablabla
     - [x] Comprobación de datos
 - [x] Terminar frontend
 - [ ] Agregar seguridad de paquetes
-- [ ] Add "components" document to easily copy & paste sections of the readme
-- [ ] Multi-language Support
-    - [ ] Chinese
-    - [ ] Spanish
+- [ ] Montar en la nube AWS
+    - [ ] VPC
+    - [ ] EC2
+    - [ ] Route 53
 
 See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a full list of proposed features (and known issues).
 
