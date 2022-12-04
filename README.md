@@ -114,7 +114,7 @@ Instalar npm
 * npm
   ```sh
   npm install npm@latest -g
- 
+  ```
 
 ### Instalación
 
@@ -126,7 +126,7 @@ Instalar npm
    ```sh
    npm install
    ```
-   ```
+ 
 
 <p align="right">(<a href="#readme-top">↑↑↑</a>)</p>
 
