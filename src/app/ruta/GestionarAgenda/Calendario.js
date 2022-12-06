@@ -93,6 +93,19 @@ function Calendary(){
         e.preventDefault();
     }
 
+    const Modify = (id) => {
+        sessionStorage.setItem("id", id._id);
+        sessionStorage.setItem("peluquero", id.usuario);
+        sessionStorage.setItem("modaservicio", id.servicio);
+        sessionStorage.setItem("modacliente", id.cliente);
+
+        // navigate("/modificaragenda")
+
+        
+
+
+    }
+
 
     // const Thisthis= (asd) =>{
         // let pelAsig=[]
@@ -157,7 +170,7 @@ function Calendary(){
                                 <Accordion.Body>Peluquero: {dataAgenda[0].usuario} </Accordion.Body>
                                 <Accordion.Body>Cliente: {dataAgenda[0].cliente} </Accordion.Body>
                                 <Accordion.Body>Servicios: {dataAgenda[0].servicio}  </Accordion.Body>
-                                <Accordion.Body><Link>Modificar</Link> <Link onClick={()=>Delete(dataAgenda[0]._id)}>Eliminar</Link></Accordion.Body>
+                                <Accordion.Body><Link to="/modificaragenda" onClick={() => Modify(dataAgenda[0])}>Modificar</Link> <Link onClick={()=>Delete(dataAgenda[0]._id)}>Eliminar</Link></Accordion.Body>
                             </Accordion.Item>: 
                             <Accordion.Item eventKey="0">
                                 <Accordion.Header>Horario Disponible</Accordion.Header>
@@ -215,6 +228,7 @@ function Calendary(){
                     </Button>
                 </Modal.Footer>
             </Modal>
+            {/* <Button onClick={()=> console.log(sessionStorage.getItem("id"),sessionStorage.getItem("modauser"), sessionStorage.getItem("modaservicio"), sessionStorage.getItem("modacliente"))}>thiss</Button> */}
         </div>
     )}
 }

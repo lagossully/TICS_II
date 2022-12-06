@@ -27,6 +27,9 @@ import AsignarAgenda from "./ruta/GestionarAgenda/Agendar";
 
 import Sandbox from "./ruta/test/Sandbox";
 import Portada from "./ruta/Portada";
+import ModificarAgenda from "./ruta/GestionarAgenda/ModificarAgenda";
+import ModificarLote from "./ruta/Inventario/ModificarLote";
+import Login from "./login";
 
 
 
@@ -47,16 +50,20 @@ function App (){
         <Route path="inventario" element={<InventoryLayout/>} />
         <Route path="agregarproducto" element={<CrearProducto/>} />
         <Route path="crearlote" element={<CrearLote/>} />
+        <Route path="modificarlote" element={<ModificarLote/>} />
 
 
         <Route path="gestionaragenda" element={<GestionarAgenda/>} />
         <Route path="asignaragenda" element={<AsignarAgenda/>} />
+        <Route path="modificaragenda" element={<ModificarAgenda/>} />
 
 
         <Route path="crearservicio" element={<CrearServicio/>} />
 
         <Route path="pedirhora" element={<Agenda/>} />
         <Route path="asignarhora" element={<AsignarPeluquero/>} />
+
+        <Route path="login" element={<Login/>} />
 
         <Route path="test" element={<Test/>} /> {/*vista de prueba*/}
 

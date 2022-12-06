@@ -66,6 +66,7 @@ router.put('/:id', async (req, res) => {
 });
 
 router.delete('/:id', async (req, res) => {
+  console.log(req.params.id)
   await Usuario.findByIdAndRemove(req.params.id);
   res.json({status: 'Usuario Eliminado'});
 });

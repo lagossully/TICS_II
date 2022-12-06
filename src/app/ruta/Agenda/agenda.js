@@ -216,7 +216,7 @@ function Calendary(){
                     ))}
                 </thead>
             </table>
-            <Button onClick={()=>console.log(data, sessionStorage.getItem("peluquero"))}>SSSSSSSSSSs</Button>
+            {/* <Button onClick={()=>console.log(data, sessionStorage.getItem("peluquero"))}>SSSSSSSSSSs</Button> */}
         </div>
     )}
 }

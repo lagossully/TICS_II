@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Form, Button} from 'react-bootstrap';
+import { Form, Button, Col, Row, Stack} from 'react-bootstrap';
 import Select from "react-select";
 import { useNavigate, Link} from "react-router-dom";
+import Navlog from "../navlog";
 
 function CrearLote (){
     const navigation = useNavigate();
@@ -17,14 +18,16 @@ function CrearLote (){
     const onCadChange=(value)=>setCaduca(value);
     const onProvChange=(value)=>setProveedor(value);
     
-    const listprod =[]
+
     const [data, setData] = React.useState([]);
 
     React.useEffect(() => {
         
+        
         fetch("/mod/product")
           .then(res => res.json())
           .then(data => {
+            let listprod =[]
             console.log(data)
             data.map((e)=>{listprod.push({label:e.nombre, value:e.nombre})})
             setData(listprod)
@@ -55,23 +58,26 @@ function CrearLote (){
     }
 
     if(isFetching === false){
-        return(
-            <div>
-                <h1>Loading...</h1>
-            </div>
-        )}
+        return(<div>
+            <Navlog/>
+        
+        Cargando...</div>
+)}
     else{
 
     return(
         <div>
+            <Navlog/>
+            <br/>
+            <h2 className="text-center mb-4">Crear Lote</h2>
+            <br/>
             <nav className="light-blue darken-4">
                 <div className="container">
-                    <a className="brand-logo" href="" onClick={() => navigation("/menuprincipal")}>HM Salon</a>
+                   
                 </div>
             </nav>
            
             <div className="container">
-                zxczxc
                 <Select
                     // defaultValue={days}
                     placeholder="Selecciona el producto"
@@ -103,8 +109,10 @@ function CrearLote (){
                     required={true}
                 />  
                 <Form.Text id="proveedor" muted></Form.Text>
+                <Row>
                 <Button variant="info" onClick={()=> Handler()}>Crear lote</Button>
                 <Button variant="secondary" onClick={()=> navigation("/inventario")}>Cancelar</Button>
+                </Row>
             </div>
         </div>
     )}

@@ -1,6 +1,7 @@
 import {useTable} from "react-table";
 import React, {useMemo, useEffect} from 'react';
 import { useNavigate, Link} from "react-router-dom";
+import { Button } from "react-bootstrap";
 function Table({ columns, data }) {
     // Use the state and functions returned from useTable to build your UI
     const {
@@ -42,7 +43,7 @@ function Table({ columns, data }) {
     )
   }
 
-function Tabla (){
+function UserTable (){
   const navigation = useNavigate();
   const [data, setData] = React.useState([]);
 
@@ -98,7 +99,10 @@ function Tabla (){
 
 
     return(
+      <div>
         <Table columns={columns} data={data} />
+        {/* <Button onClick={()=>console.log(data)}></Button> */}
+        </div>
     )
 }
-export default Tabla;
+export default UserTable;

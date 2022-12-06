@@ -1,7 +1,7 @@
 import {useTable} from "react-table";
 import React, {useMemo, useEffect} from 'react';
 import { useNavigate, Link} from "react-router-dom";
-import { Form, Button, Card, Col} from 'react-bootstrap';
+import { Form, Button, Card, Col, Row} from 'react-bootstrap';
 function Table({ columns, data }) {
     // Use the state and functions returned from useTable to build your UI
     const {
@@ -82,8 +82,9 @@ function TablaInventario (){
     return(
       <>
           <Table columns={columns} data={data}/>
-          <div className="row">
-              <Button variant="primary" onClick={() => navigation("/crearlote")}>Agregar Lote</Button>
+          <div className="modal-footer">
+            <Button variant="primary" onClick={() => navigation("/crearlote")}>Agregar Lote</Button>
+            <Button variant="primary" onClick={() => navigation("/modificarlote")}>Modificar Lote</Button>
           </div>
       </>
     )

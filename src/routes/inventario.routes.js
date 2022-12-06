@@ -38,4 +38,14 @@ router.delete('/:id', async (req, res) => {
   await Inventario.findByIdAndRemove(req.params.id);
   res.json({status: 'Inventario Eliminado'});
 });
+
+router.use('/altibajo/:id', async (req, res) => {///aca
+  let value = req.params.id
+  
+  const {fecha} = req.body;
+  const NewDate = {fecha};
+  // console.log(value[0].split("f").join("/")+" "+value[1])
+  const agenda = await Agenda.findByIdAndUpdate({_id:value}, NewDate);
+      res.json(agenda);
+})
 module.exports = router;

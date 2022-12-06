@@ -1,8 +1,9 @@
 import React, { Component } from "react";
-import { Form, Button} from 'react-bootstrap';
+import { Form, Button, Stack} from 'react-bootstrap';
 import Select from "react-select";
 import { useNavigate, Link} from "react-router-dom";
 import { MdOutlineLocalLaundryService } from "react-icons/md";
+import Navlog from "../navlog";
 
 function CrearUsuario (){
     const navigation = useNavigate();
@@ -71,74 +72,81 @@ function CrearUsuario (){
     }
 
     return(
+        
+        
         <div>
-            <nav className="light-blue darken-4">
+            <Stack>
+                <Navlog/>
+                    <br/>
+                    <h2 className="text-center mb-4">Crear un usuario</h2>
+                <nav className="light-blue darken-4">
+                    <div className="container">
+                    </div>
+                </nav>
                 <div className="container">
-                    <a className="brand-logo" href="" onClick={() => navigation("/")}>HM Salon</a>
+                    <Form.Label htmlFor="name">Nombre del Usuario</Form.Label>
+                    <Form.Control
+                        id="name"
+                        onChange={name => onNameChange(name.target.value)}
+                        required={true}
+                    />
+                    <Form.Text id="name" muted></Form.Text>
                 </div>
-            </nav>
-            <div className="container">
-                <Form.Label htmlFor="name">Nombre del Usuario</Form.Label>
-                <Form.Control
-                    id="name"
-                    onChange={name => onNameChange(name.target.value)}
-                    required={true}
-                />
-                <Form.Text id="name" muted></Form.Text>
-            </div>
-            <div className="container">
-                <Form.Label htmlFor="rut">Rut</Form.Label>
-                <Form.Control
-                    // type="password"
-                    id="rut"
-                    onChange={rut => onRutChange(rut.target.value)}
-                    required={true}
-                />
-                <Form.Text id="passwordHelpBlock" muted></Form.Text>
-                
-                <Form.Label htmlFor="mail">Correo Electronico</Form.Label>
-                <Form.Control
-                    // type="password"
-                    id="mail"
-                    onChange={mail => onMailChange(mail.target.value)}
-                    required={true}
-                />
-                <Form.Text id="passwordHelpBlock" muted></Form.Text>
-                
-                <Form.Label htmlFor="pass">Contraseña</Form.Label>
-                <Form.Control
-                    // type="password"
-                    id="pass"
-                    onChange={pass => onPassChange(pass.target.value)}
-                    required={true}
-                />
-                <Form.Text id="passwordHelpBlock" muted></Form.Text>
+                <div className="container">
+                    <Form.Label htmlFor="rut">Rut</Form.Label>
+                    <Form.Control
+                        // type="password"
+                        id="rut"
+                        onChange={rut => onRutChange(rut.target.value)}
+                        required={true}
+                    />
+                    <Form.Text id="passwordHelpBlock" muted></Form.Text>
+                    
+                    <Form.Label htmlFor="mail">Correo Electronico</Form.Label>
+                    <Form.Control
+                        // type="password"
+                        id="mail"
+                        onChange={mail => onMailChange(mail.target.value)}
+                        required={true}
+                    />
+                    <Form.Text id="passwordHelpBlock" muted></Form.Text>
+                    
+                    <Form.Label htmlFor="pass">Contraseña</Form.Label>
+                    <Form.Control
+                        // type="password"
+                        id="pass"
+                        onChange={pass => onPassChange(pass.target.value)}
+                        required={true}
+                    />
+                    <Form.Text id="passwordHelpBlock" muted></Form.Text>
 
-                <Select
-                    placeholder="Selecciona un perfil"
-                    value={perfil}
-                    onChange={ opt => onPerfilChange(opt)}
-                    options={options}
-                />
-                <Select
-                    defaultValue={days}
-                    isMulti
-                    placeholder="Selecciona el horario  "
-                    // value={horario}
-                    onChange={ opt => onHorarioChange(opt)}
-                    options={days}
-                    className="basic-multi-select"
-                    classNamePrefix="select"
-                />
+                    <Select
+                        placeholder="Selecciona un perfil"
+                        value={perfil}
+                        onChange={ opt => onPerfilChange(opt)}
+                        options={options}
+                    />
+                    <Select
+                        defaultValue={days}
+                        isMulti
+                        placeholder="Selecciona el horario  "
+                        // value={horario}
+                        onChange={ opt => onHorarioChange(opt)}
+                        options={days}
+                        className="basic-multi-select"
+                        classNamePrefix="select"
+                    />
 
-                <Button variant="info" onClick={Handler}>Crear usuario</Button>
-                <Button variant="secondary" onClick={() => navigation("/usuario")}>Cancelar</Button>
-                {/* <Button variant="secondary" onClick={() => console.log(horario.map((item)=>item.value).join(""))}>this</Button> */}
-                
-                {/* <Link to={"../prod"} >try</Link>         */}
-            </div>
+                    <Button variant="info" onClick={Handler}>Crear usuario</Button>
+                    <Button variant="secondary" onClick={() => navigation("/usuario")}>Cancelar</Button>
+                    {/* <Button variant="secondary" onClick={() => console.log(horario.map((item)=>item.value).join(""))}>this</Button> */}
+                    
+                    {/* <Link to={"../prod"} >try</Link>         */}
+                </div>
+            </Stack>
         </div>
     )
+
 
 }
 

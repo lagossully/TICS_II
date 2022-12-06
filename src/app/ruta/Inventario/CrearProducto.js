@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import { Form, Button} from 'react-bootstrap';
 import Select from "react-select";
 import { useNavigate, Link} from "react-router-dom";
+import Navlog from "../navlog";
 
 function CrearProducto (){
     const navigation = useNavigate();
@@ -46,11 +47,10 @@ function CrearProducto (){
 
     return(
         <div>
-            <nav className="light-blue darken-4">
-                <div className="container">
-                    <a className="brand-logo" href="" onClick={() => navigation("/menuprincipal")}>HM Salon</a>
-                </div>
-            </nav>
+            <Navlog/>
+            <br/>
+            <h2 className="text-center mb-4">Crear Producto</h2>
+            <br/>
            
             <div className="container">
                 <Form.Label htmlFor="ID">Nombre Del Producto</Form.Label>

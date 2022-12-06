@@ -41,8 +41,18 @@ router.delete('/:id', async (req, res) => {
 
 router.use('/findate/:fecha', async (req, res) => {
   let value = req.params.fecha.split("h");
-  console.log(value[0].split("f").join("/")+" "+value[1])
+  // console.log(value[0].split("f").join("/")+" "+value[1])
   const agenda = await Agenda.find({fecha:value[0].split("f").join("/")+" "+value[1]});
+      res.json(agenda);
+})
+
+router.use('/moddate/:id', async (req, res) => {
+  let value = req.params.id
+  
+  const {fecha} = req.body;
+  const NewDate = {fecha};
+  // console.log(value[0].split("f").join("/")+" "+value[1])
+  const agenda = await Agenda.findByIdAndUpdate({_id:value}, NewDate);
       res.json(agenda);
 })
 module.exports = router;

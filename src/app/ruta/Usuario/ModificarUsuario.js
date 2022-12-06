@@ -1,7 +1,8 @@
 import React, { Component, useEffect } from "react";
-import { Form, Button} from 'react-bootstrap';
+import { Form, Button, Stack} from 'react-bootstrap';
 import Select from "react-select";
 import { useNavigate, Link} from "react-router-dom";
+import Navlog from "../navlog";
 
 function ModificarUsuario (){
     const navigation = useNavigate();
@@ -28,6 +29,7 @@ function ModificarUsuario (){
     const [id, setId] = React.useState("");
     useEffect(() => {
         setId(sessionStorage.getItem("temp"));
+        // console.log(sessionStorage.getItem("temp"))
         setName(sessionStorage.getItem("modnom"));
         setRut(sessionStorage.getItem("modrut"));
         setMail(sessionStorage.getItem("modmail"));
@@ -66,7 +68,7 @@ function ModificarUsuario (){
                     break;
         }}
         setHorario(horariotemp);
-        sessionStorage.removeItem("temp");
+        // sessionStorage.removeItem("temp");
         setIsFetching(true);
     },[]);
 
@@ -97,7 +99,7 @@ function ModificarUsuario (){
         {   value:"6",
             label: "Domingo"}]
 
-    const Handler = (e)=> {
+    const Handler = ()=> {
         let message={
             nombre:name,
             rut:rut,
@@ -116,34 +118,35 @@ function ModificarUsuario (){
         })
             .then(res => {console.log(res); navigation("/usuario")})
             .catch(err => console.error(err))
-        e.preventDefault();
+        // e.preventDefault();
     }
 
-    const Delete = (e) => {
+    const Delete = () => {
         fetch("/mod/user/"+id,{
             method:"DELETE",
             headers:{
                 "Accept":"application/json",
                 "Content-Type":"application/json",
-            },
+            }
         })
             .then(res => {console.log(res); navigation("/usuario")})
             .catch(err => console.error(err))
-        
-        e.preventDefault();
     }
 
     if(!isFetching){
-        return <div>Cargando...</div>
+        return (<div>
+            <Navlog/>
+        
+        Cargando...</div>
+)
     }
     else{
     return(
         <div>
-            <nav className="light-blue darken-4">
-                <div className="container">
-                    <a className="brand-logo" href="" onClick={() => navigation("/menuprincipal")}>HM Salon</a>
-                </div>
-            </nav>
+        <Stack gap={3}>
+            <Navlog/>
+            <br/>
+            <h2 className="text-center mb-4">Modificacion de usuario</h2>
             <div className="container">
                 <Form.Label htmlFor="name">Nombre del Usuario</Form.Label>
                 <Form.Control
@@ -208,6 +211,7 @@ function ModificarUsuario (){
                 
                 {/* <Link to={"../prod"} >try</Link>         */}
             </div>
+            </Stack>
         </div>
     )}
 

@@ -3,6 +3,8 @@ import { Form, Button, Card, Col, Row, ListGroup, Nav} from 'react-bootstrap';
 import { useNavigate, Link} from "react-router-dom";
 import TablaInventario from "./TablaInventario";
 import TablaProductos from "./TablaProductos";
+import Navlog from "../navlog";
+
 
 function InventoryLayout(){
     const navigation = useNavigate();
@@ -14,9 +16,12 @@ function InventoryLayout(){
 
     return(
         <div>
+            <Navlog/>
+            <br/>
+            <h2 className="text-center mb-4">Inventario</h2>
+            <br/>
             <nav className="light-blue darken-4">
                 <div className="container">
-                    <a className="brand-logo" href="" onClick={() => navigation("/menuprincipal")}>HM Salon</a>
                 </div>
             </nav>
             <Card>
