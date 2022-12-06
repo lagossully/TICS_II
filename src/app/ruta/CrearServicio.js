@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { Form, Button} from 'react-bootstrap';
+import { Form, Button, Stack} from 'react-bootstrap';
 import Select from "react-select";
 import { useNavigate, Link} from "react-router-dom";
+import Navlog from "./navlog";
 
 function CrearServicio (){
     const navigation = useNavigate();
@@ -51,6 +52,9 @@ function CrearServicio (){
     }
 
     return(
+
+        <Stack gap={3}>
+            <Navlog/>
         <div>
             <nav className="light-blue darken-4">
                 <div className="container">
@@ -119,6 +123,7 @@ function CrearServicio (){
                 <Button variant="info" onClick={Handler}>Crear Producto</Button>
             </div>
         </div>
+        </Stack>
     )
 
 }

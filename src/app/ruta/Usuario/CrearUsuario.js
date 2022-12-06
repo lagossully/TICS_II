@@ -1,8 +1,11 @@
 import React, { Component } from "react";
-import { Form, Button} from 'react-bootstrap';
+//import { Form, Button} from 'react-bootstrap';
 import Select from "react-select";
 import { useNavigate, Link} from "react-router-dom";
 import { MdOutlineLocalLaundryService } from "react-icons/md";
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+
 
 function CrearUsuario (){
     const navigation = useNavigate();
@@ -72,7 +75,7 @@ function CrearUsuario (){
 
     return(
         <div>
-            <nav className="light-blue darken-4">
+            <nav className="light-blue darken-4 mt-3">
                 <div className="container">
                     <a className="brand-logo" href="" onClick={() => navigation("/")}>HM Salon</a>
                 </div>
@@ -138,6 +141,41 @@ function CrearUsuario (){
                 {/* <Link to={"../prod"} >try</Link>         */}
             </div>
         </div>
+      //   <Form>
+      //       <div className="container">
+      //   <Form.Group className="mb-3" controlId="formBasicEmail">
+      //     <Form.Label>Email address</Form.Label>
+      //     <Form.Control type="email" placeholder="Enter email" />
+      //     <Form.Text className="text-muted">
+      //       We'll never share your email with anyone else.
+      //     </Form.Text>
+      //   </Form.Group>
+  
+      //   <Form.Group className="mb-3" controlId="formBasicPassword">
+      //     <Form.Label>Password</Form.Label>
+      //     <Form.Control type="password" placeholder="Password" />
+      //   </Form.Group>
+      //   {['checkbox', 'radio'].map((type) => (
+      //   <div key={`default-${type}`} className="mb-3">
+      //     <Form.Check 
+      //       type={type}
+      //       id={`default-${type}`}
+      //       label={`default ${type}`}
+      //     />
+
+      //     <Form.Check
+      //       disabled
+      //       type={type}
+      //       label={`disabled ${type}`}
+      //       id={`disabled-default-${type}`}
+      //     />
+      //   </div>
+      // ))}
+      //   <Button variant="primary" type="submit">
+      //     Submit
+      //   </Button>
+      //   </div>
+      // </Form>
     )
 
 }

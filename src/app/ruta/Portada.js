@@ -2,6 +2,7 @@ import React, { Component, useCallback } from "react";
 import { Form, Button, Card, Col, Navbar, Nav} from 'react-bootstrap';
 import Select from "react-select";
 import { useNavigate, Link} from "react-router-dom";
+import Navsin from "./navsin";
 
 // const divStyle = {
 //     background-color: '#611A8A';
@@ -12,19 +13,7 @@ function Portada (){
 
     return(
         <div>
-            <Navbar expand="lg"> 
-                <Navbar.Brand href="" onClick={() => navigation("/")}>HM Salon</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
-                <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="me-auto">
-                        {/* <Nav.Link href="" onClick={() => navigation("/inventario")}>Inventario</Nav.Link>
-                        <Nav.Link href="" onClick={() => navigation("/ventas")}>Ventas</Nav.Link> */}
-                        <Nav.Link href="" onClick={() => navigation("/menuprincipal")}>Menu Principal</Nav.Link>
-                        <Nav.Link href="" onClick={() => navigation("/sandbox")}>Sandbox</Nav.Link>
-                        <Nav.Link href="" onClick={() => navigation("/asignarhora")}>Agendar Cita</Nav.Link>
-                    </Nav>
-                </Navbar.Collapse>
-            </Navbar>
+           <Navsin/>
 
 
             {/* <nav className="light-blue darken-4">
