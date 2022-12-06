@@ -12,7 +12,7 @@ function UserLayout(){
             <Stack>
                 <Navlog/>
             <br/>
-            <h2 className="text-center mb-4">Usuarios</h2>
+            {/* <h2 className="text-center mb-4">Usuarios</h2> */}
             <nav className="light-blue darken-4">
                 <div className="container">
                 </div>
@@ -24,7 +24,8 @@ function UserLayout(){
                     </div>
                 </div>
                 <div className="row">
-                    <Button variant="primary" onClick={() => navigation("/crearusuario")}>Crear Usuario</Button>
+                    {/* <Button variant="primary" onClick={() => navigation("/crearusuario")}>Crear Usuario</Button> */}
+                    <center><Link to="/crearusuario"><button type="button" class="btn btn-primary">Crear Usuario</button></Link></center>
                 </div>
             </div>
             </Stack>

@@ -100,9 +100,9 @@ function TablaProductos (){
     return(
         <>
             <Table columns={columns} data={data}/>
-            <div className="row">
+            {/* <div className="row">
                 <Button variant="primary" onClick={() => navigation("/agregarproducto")}>Agregar producto</Button>
-            </div>
+            </div> */}
         </>
     )
 }

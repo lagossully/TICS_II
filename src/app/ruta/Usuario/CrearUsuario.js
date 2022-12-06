@@ -75,111 +75,83 @@ function CrearUsuario (){
         
         
         <div>
-            <Stack>
+           
                 <Navlog/>
                     <br/>
-                    <h2 className="text-center mb-4">Crear un usuario</h2>
-                <nav className="light-blue darken-4">
-                    <div className="container">
-                    </div>
-                </nav>
+                    <nav className="light-blue darken-4 mt-3">
                 <div className="container">
-                    <Form.Label htmlFor="name">Nombre del Usuario</Form.Label>
-                    <Form.Control
-                        id="name"
-                        onChange={name => onNameChange(name.target.value)}
-                        required={true}
-                    />
-                    <Form.Text id="name" muted></Form.Text>
+                   
                 </div>
-                <div className="container">
-                    <Form.Label htmlFor="rut">Rut</Form.Label>
-                    <Form.Control
-                        // type="password"
-                        id="rut"
-                        onChange={rut => onRutChange(rut.target.value)}
-                        required={true}
-                    />
-                    <Form.Text id="passwordHelpBlock" muted></Form.Text>
-                    
-                    <Form.Label htmlFor="mail">Correo Electronico</Form.Label>
-                    <Form.Control
-                        // type="password"
-                        id="mail"
-                        onChange={mail => onMailChange(mail.target.value)}
-                        required={true}
-                    />
-                    <Form.Text id="passwordHelpBlock" muted></Form.Text>
-                    
-                    <Form.Label htmlFor="pass">Contraseña</Form.Label>
-                    <Form.Control
-                        // type="password"
-                        id="pass"
-                        onChange={pass => onPassChange(pass.target.value)}
-                        required={true}
-                    />
-                    <Form.Text id="passwordHelpBlock" muted></Form.Text>
-
-                    <Select
-                        placeholder="Selecciona un perfil"
-                        value={perfil}
-                        onChange={ opt => onPerfilChange(opt)}
-                        options={options}
-                    />
-                    <Select
-                        defaultValue={days}
-                        isMulti
-                        placeholder="Selecciona el horario  "
-                        // value={horario}
-                        onChange={ opt => onHorarioChange(opt)}
-                        options={days}
-                        className="basic-multi-select"
-                        classNamePrefix="select"
-                    />
-
-                    <Button variant="info" onClick={Handler}>Crear usuario</Button>
-                    <Button variant="secondary" onClick={() => navigation("/usuario")}>Cancelar</Button>
-                    {/* <Button variant="secondary" onClick={() => console.log(horario.map((item)=>item.value).join(""))}>this</Button> */}
-                    
-                    {/* <Link to={"../prod"} >try</Link>         */}
-                </div>
-            </Stack>
+            </nav>
+            <div className="container">
+                <Form.Label htmlFor="name">Nombre del Usuario</Form.Label>
+                <Form.Control
+                    id="name"
+                    onChange={name => onNameChange(name.target.value)}
+                    required={true}
+                />
+                <Form.Text id="name" muted></Form.Text>
+            </div>
+            <div className="container">
+                <Form.Label htmlFor="rut">Rut</Form.Label>
+                <Form.Control
+                    // type="password"
+                    id="rut"
+                    onChange={rut => onRutChange(rut.target.value)}
+                    required={true}
+                />
+                <Form.Text id="passwordHelpBlock" muted></Form.Text>
+                
+                <Form.Label htmlFor="mail">Correo Electronico</Form.Label>
+                <Form.Control
+                    // type="password"
+                    id="mail"
+                    onChange={mail => onMailChange(mail.target.value)}
+                    required={true}
+                />
+                <Form.Text id="passwordHelpBlock" muted></Form.Text>
+                
+                <Form.Label htmlFor="pass">Contraseña</Form.Label>
+                <Form.Control
+                    // type="password"
+                    id="pass"
+                    onChange={pass => onPassChange(pass.target.value)}
+                    required={true}
+                />
+                <Form.Text id="passwordHelpBlock" muted></Form.Text>
+                <br/>
+                <Select
+                    placeholder="Selecciona un perfil"
+                    value={perfil}
+                    onChange={ opt => onPerfilChange(opt)}
+                    options={options}
+                />
+                <br/>
+                <Select
+                    defaultValue={days}
+                    isMulti
+                    placeholder="Selecciona el horario  "
+                    // value={horario}
+                    onChange={ opt => onHorarioChange(opt)}
+                    options={days}
+                    className="basic-multi-select"
+                    classNamePrefix="select"
+                />
+                <br/>
+                <center>
+                <Stack direction="horizontal" gap={3}>
+                <Button variant="info" onClick={Handler}>Crear usuario</Button>
+                <Button variant="secondary" onClick={() => navigation("/usuario")}>Cancelar</Button>
+                </Stack>
+                
+                </center>
+               
+                {/* <Button variant="secondary" onClick={() => console.log(horario.map((item)=>item.value).join(""))}>this</Button> */}
+                
+                {/* <Link to={"../prod"} >try</Link>         */}
+            </div>
         </div>
-      //   <Form>
-      //       <div className="container">
-      //   <Form.Group className="mb-3" controlId="formBasicEmail">
-      //     <Form.Label>Email address</Form.Label>
-      //     <Form.Control type="email" placeholder="Enter email" />
-      //     <Form.Text className="text-muted">
-      //       We'll never share your email with anyone else.
-      //     </Form.Text>
-      //   </Form.Group>
-  
-      //   <Form.Group className="mb-3" controlId="formBasicPassword">
-      //     <Form.Label>Password</Form.Label>
-      //     <Form.Control type="password" placeholder="Password" />
-      //   </Form.Group>
-      //   {['checkbox', 'radio'].map((type) => (
-      //   <div key={`default-${type}`} className="mb-3">
-      //     <Form.Check 
-      //       type={type}
-      //       id={`default-${type}`}
-      //       label={`default ${type}`}
-      //     />
 
-      //     <Form.Check
-      //       disabled
-      //       type={type}
-      //       label={`disabled ${type}`}
-      //       id={`disabled-default-${type}`}
-      //     />
-      //   </div>
-      // ))}
-      //   <Button variant="primary" type="submit">
-      //     Submit
-      //   </Button>
-      //   </div>
-      // </Form>
     )
 
 

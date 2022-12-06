@@ -82,10 +82,10 @@ function TablaInventario (){
     return(
       <>
           <Table columns={columns} data={data}/>
-          <div className="modal-footer">
+          {/* <div className="modal-footer">
             <Button variant="primary" onClick={() => navigation("/crearlote")}>Agregar Lote</Button>
             <Button variant="primary" onClick={() => navigation("/modificarlote")}>Modificar Lote</Button>
-          </div>
+          </div> */}
       </>
     )
 }
