@@ -18,10 +18,6 @@ function InventoryLayout(){
         <div>
             <Navlog/>
             <br/>
-            <h2 className="text-center mb-4">Inventario</h2>
-            <br/>
-           
-            <br/>
 
 <Container>
 
@@ -56,6 +52,8 @@ function InventoryLayout(){
         <TablaProductos />
         <center>
             <Stack direction="horizontal" gap={3}>
+                <br/>
+                <br/>
                 <Link to="/agregarproducto"><button type="button" className="btn btn-primary">Crear producto</button></Link>
                 {/* <Link to="/modificarproducto"><button type="button" class="btn btn-primary">Modificar producto</button></Link> */}
             </Stack>

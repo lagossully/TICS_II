@@ -2,6 +2,7 @@ import React, { Component, useEffect } from "react";
 import { Form, Button, Row} from 'react-bootstrap';
 import Select from "react-select";
 import { useNavigate, Link} from "react-router-dom";
+import Navlog from "../navlog";
 
 function ModificarLote (){
     const navigation = useNavigate();
@@ -72,12 +73,14 @@ function ModificarLote (){
     else{
     return(
         <div>
-            <nav className="light-blue darken-4">
-                <div className="container">
-                    <a className="brand-logo" href="" onClick={() => navigation("/menuprincipal")}>HM Salon</a>
-                </div>
-            </nav>
-            <Row>
+            <Navlog/>
+            <br/>
+            <br/>
+            <h2 className="text-center mb-4">Modificar Lote</h2>
+            <br/>
+            <br/>
+
+            <div className="container">
             <Select
                     placeholder="Selecciona el lote"
                     // value={horario}
@@ -86,8 +89,8 @@ function ModificarLote (){
                     className="basic-multi-select"
                     classNamePrefix="select"
                 />
-            </Row>
-            <Row>
+            
+
              {(inventario !== "")? <Form.Label htmlFor="cantidad">Cantidad Actual: {inventario.value.cantidad} </Form.Label>:<Form.Label htmlFor="pass">Lote no definido</Form.Label>}
                 <Form.Control
                     type="int"
@@ -96,8 +99,8 @@ function ModificarLote (){
                     required={true}
                 />
                 <Form.Text id="passwordHelpBlock" muted></Form.Text>
-            </Row>
-            <Row>
+            
+            
 
                 <Form.Label htmlFor="altibajo">Aumentar o disminuir</Form.Label>
                 <Form.Control
@@ -107,8 +110,7 @@ function ModificarLote (){
                     required={true}
                 />
                 <Form.Text id="passwordHelpBlock" muted></Form.Text>
-            </Row>
-            <Row>
+           
                 <Form.Label htmlFor="descripcion">Descripcion</Form.Label>
                 <Form.Control
                     // type="password"
@@ -117,10 +119,10 @@ function ModificarLote (){
                     required={true}
                 />
                 <Form.Text id="passwordHelpBlock" muted></Form.Text>
-            </Row>
-            {/* <Button variant="primary" onClick={()=> Handler}/> */}
+            
+      
 
-         
+            </div>
         </div>
     )}
 

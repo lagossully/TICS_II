@@ -2,6 +2,42 @@ import {useTable} from "react-table";
 import React, {useMemo, useEffect} from 'react';
 import { Form, Button, Card, Col} from 'react-bootstrap';
 import { useNavigate, Link} from "react-router-dom";
+import styled from "styled-components";
+
+
+const Styles = styled.div`
+padding: 1rem;
+
+  .user {
+    background-color: blue;
+    color: white;
+  }
+
+  table {
+    border-spacing: 0;
+    border: 1px solid black;
+
+    tr {
+      :last-child {
+        td {
+          border-bottom: 0;
+        }
+      }
+    }
+
+    th,
+    td {
+      margin: 0;
+      padding: 0.5rem;
+      border-bottom: 1px solid black;
+      border-right: 1px solid black;
+
+      :last-child {
+        border-right: 0;
+      }
+    }
+  }
+`
 function Table({ columns, data }) {
     // Use the state and functions returned from useTable to build your UI
     const {
@@ -98,12 +134,17 @@ function TablaProductos (){
 
 
     return(
-        <>
-            <Table columns={columns} data={data}/>
-            {/* <div className="row">
-                <Button variant="primary" onClick={() => navigation("/agregarproducto")}>Agregar producto</Button>
-            </div> */}
-        </>
+      <>
+      <card>
+      <center><h1>Producto</h1></center>
+      <br></br>
+      <center>
+    <Styles>
+      <Table columns={columns} data={data} />
+      </Styles>
+      </center>
+      </card>
+      </> 
     )
 }
 export default TablaProductos;

@@ -3,64 +3,79 @@ import { Form, Button, Card, Col, Navbar, Nav, Container, Stack} from 'react-boo
 import Select from "react-select";
 import { useNavigate, Link} from "react-router-dom";
 import Navsin from "./ruta/navsin";
-import axios from "axios";
+import moment from "moment";
 
 
 function Login (){
     const navigation = useNavigate();
-    const { userData, setUserData } = React.useState( { token: undefined, user: undefined } );
+    const time = moment().format('YYYY/MM/DD hh mm')
+    const [isFetching, setIsFetching] = React.useState(false);
+
     const [user, setUser] = React.useState("");
     const [pass, setPass] = React.useState("");
 
-    
-  const [errorMsg, setErrorMsg] = React.useState();
     const onUserChange=(value)=>setUser(value);
     const onPassChange=(value)=>setPass(value);
 
-    // const handler = () => {
-    //     let message={
-    //         "correo":user,
-    //         "pass":pass
-    //     }
-        
-    //     fetch("/mod/auth",{
-    //         method:"POST",
-    //         headers:{
-    //             "Accept":"application/json",
-    //             "Content-Type":"application/json",
-    //         },
-    //         body: JSON.stringify(message)
-    //     })
-    //         .then(res => console.log(res))
-    //         .catch(err => console.error(err))
-    // }
+    const borrar = ()=>{
+      localStorage.clear();
+    }
 
-    const handleSubmit = async () => {
-    
-        try {
-          const newUser = {
-            correo: user,
-            pass: pass,
-          };
-    
-          const loginResponse = await axios.post("/mod/auth/login", newUser);
-          //console.log(loginResponse.data)
-        //   setUserData({
-        //     token: loginResponse.data.token,
-        //     correo: loginResponse.data.correo,
-        //   });
-        //   localStorage.setItem("auth-token", loginResponse.data.token);
-    
-          setUser({
-            correo: "",
-            pass: "",
-          });
-        } catch (err) {
-          err.response
-            ? setErrorMsg(err.response)
-            : setErrorMsg("We have an error!");
-        }
-      };
+
+    // const [data, setData] = React.useState([]);
+
+    const handleSubmit = () => {
+
+      fetch("/mod/user")
+        .then(res => res.json())
+        .then(data => {
+          let count = 0;
+          data.map (item => {
+            setIsFetching(true);
+            if (item.correo == user && item.pass == pass){
+
+              console.log("Bienvenido")
+              localStorage.setItem("AuthidHM", item._id);
+              localStorage.setItem("AuthnomHM", item.nombre);
+              localStorage.setItem("AuthmailHM", item.correo);
+              localStorage.setItem("AuthtimeHM", moment().format('YYYY MM DD hh mm'));
+              // navigation("/menuprincipal")
+            }
+            else{
+              count++;
+            }
+            if (count == data.length){
+              console.log("Usuario o contraseña incorrecta")
+              setIsFetching(false);
+            }
+          })
+        })
+        .catch(err => console.error(err))
+    }
+
+
+
+    // const handleSubmit =  () => {
+    //   console.log(data.length);
+    //   let count = 0;
+    //   data.map (item => {
+    //     if (item.correo == user && item.pass == pass){
+
+    //       console.log("Bienvenido")
+    //       localStorage.setItem("Authid", item._id);
+    //       localStorage.setItem("Authnom", item.nombre);
+    //       localStorage.setItem("Authmail", item.correo);
+    //       // navigation("/menuprincipal")
+    //     }
+    //     else{
+    //       count++;
+    //     }
+    //     if (count == data.length){
+    //       console.log("Usuario o contraseña incorrecta")
+    //     }
+    //   })
+
+    //   };
 
 
     return(
@@ -106,6 +121,12 @@ function Login (){
       </Form.Group>
       <Button variant="primary" onClick={()=>{handleSubmit()}}>
         Ingresar
+      </Button>
+      <Button variant="primary" onClick={()=>{borrar()}}>
+        this
+      </Button>
+      <Button variant="primary" onClick={()=>{console.log(time)}}>
+        this
       </Button>
     </Form>
     </Container>

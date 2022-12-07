@@ -2,6 +2,45 @@ import {useTable} from "react-table";
 import React, {useMemo, useEffect} from 'react';
 import { useNavigate, Link} from "react-router-dom";
 import { Form, Button, Card, Col, Row} from 'react-bootstrap';
+import styled from "styled-components";
+
+
+
+
+const Styles = styled.div`
+padding: 1rem;
+
+  .user {
+    background-color: blue;
+    color: white;
+  }
+
+  table {
+    border-spacing: 0;
+    border: 1px solid black;
+
+    tr {
+      :last-child {
+        td {
+          border-bottom: 0;
+        }
+      }
+    }
+
+    th,
+    td {
+      margin: 0;
+      padding: 0.5rem;
+      border-bottom: 1px solid black;
+      border-right: 1px solid black;
+
+      :last-child {
+        border-right: 0;
+      }
+    }
+  }
+`
+
 function Table({ columns, data }) {
     // Use the state and functions returned from useTable to build your UI
     const {
@@ -81,12 +120,16 @@ function TablaInventario (){
 
     return(
       <>
-          <Table columns={columns} data={data}/>
-          {/* <div className="modal-footer">
-            <Button variant="primary" onClick={() => navigation("/crearlote")}>Agregar Lote</Button>
-            <Button variant="primary" onClick={() => navigation("/modificarlote")}>Modificar Lote</Button>
-          </div> */}
-      </>
+          <card>
+      <center><h1>Inventario</h1></center>
+      <br></br>
+      <center>
+    <Styles>
+      <Table columns={columns} data={data} />
+      </Styles>
+      </center>
+      </card>
+      </> 
     )
 }
 export default TablaInventario;

@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Form, Button} from 'react-bootstrap';
+import { Form, Button, Stack} from 'react-bootstrap';
 import Select from "react-select";
 import { useNavigate, Link} from "react-router-dom";
 import Navlog from "../navlog";
@@ -86,26 +86,13 @@ function CrearProducto (){
                     required={true}
                 />  
                 <Form.Text id="precio" muted></Form.Text>
-                {/* <Button onClick={Handler}>Crear</Button> */}
-
-
-                {/* <Form.Label htmlFor="Descripcion">Descripcion</Form.Label>
-                <Form.Control
-                    // type="password"
-                    id="pass"
-                    onChange={pass => onPassChange(pass.target.value)}
-                    required={true}
-                />
-                <Form.Text id="passwordHelpBlock" muted></Form.Text> */}
-
-                {/* <Select
-                    placeholder="Selecciona un precio"
-                    value={precio}
-                    onChange={ opt => onPrecioChange(opt)}
-                    options={options}
-                /> */}
-                <Button variant="info" onClick={()=> Handler()}>Crear Producto</Button>
-                <Button variant="secondary" onClick={()=> navigation("/inventario")}>Cancelar</Button>
+                <Stack direction="horizontal" gap={3}>
+                <br/>
+                <br/>   
+                <br/>  
+                <button type="button" className="btn btn-primary" onClick={Handler}>Crear</button>
+                <button type="button" className="btn btn-secondary" onClick={()=>navigation("/inventario")}>Cancelar</button>
+                </Stack>
             </div>
         </div>
     )

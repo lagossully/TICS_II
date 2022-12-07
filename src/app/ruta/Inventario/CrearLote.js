@@ -71,13 +71,10 @@ function CrearLote (){
             <br/>
             <h2 className="text-center mb-4">Crear Lote</h2>
             <br/>
-            <nav className="light-blue darken-4">
-                <div className="container">
-                   
-                </div>
-            </nav>
+        
            
             <div className="container">
+            <Form.Label htmlFor="proveedor">Proveedor</Form.Label>
                 <Select
                     // defaultValue={days}
                     placeholder="Selecciona el producto"
@@ -109,10 +106,17 @@ function CrearLote (){
                     required={true}
                 />  
                 <Form.Text id="proveedor" muted></Form.Text>
-                <Row>
-                <Button variant="info" onClick={()=> Handler()}>Crear lote</Button>
-                <Button variant="secondary" onClick={()=> navigation("/inventario")}>Cancelar</Button>
-                </Row>
+
+                <Stack direction="horizontal" gap={3}>
+                <br/>
+                <br/>   
+                <br/>
+                <button type="button" className="btn btn-primary" onClick={()=> Handler()}>Crear lote</button>
+                <button type="button" className="btn btn-secondary" onClick={()=> navigation("/inventario")}>Cancelar</button>
+                </Stack>
+                
+
+
             </div>
         </div>
     )}
