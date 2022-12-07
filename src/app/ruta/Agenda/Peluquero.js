@@ -106,7 +106,10 @@ function AsignarPeluquero(){
           .then(res => res.json())
           .then(data => {
             let opcionesSer=[]
-            data.map((e)=>{opcionesSer.push({label:e.nombre, value:e.nombre})})
+            data.map((e)=>{
+                if (e.nombre!=="Almuerzo"){
+                opcionesSer.push({label:e.nombre, value:e.nombre})}
+            })
             setIsFetching2(true)
             setData2(opcionesSer)
 
