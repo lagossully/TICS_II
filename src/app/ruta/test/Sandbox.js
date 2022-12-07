@@ -11,7 +11,7 @@ function Sandbox(){
         <>
             <Auth/>
             <h1>hola</h1>
-            {console.log(localStorage.getItem("AuthidHM"))}
+            {/* {console.log(localStorage.getItem("AuthidHM"))} */}
         </>
     )
 }

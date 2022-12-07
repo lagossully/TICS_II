@@ -5,6 +5,45 @@ import { useNavigate, Link} from "react-router-dom";
 import moment from "moment/moment";
 import { ExactDay, FormatHour } from "../utils/time";
 import { MdOutlineArrowForwardIos, MdOutlineArrowBackIosNew } from 'react-icons/md';
+import Navlog from "../navlog";
+import styled from "styled-components";
+
+
+
+
+const Styles = styled.div`
+padding: 1rem;
+
+  .user {
+    background-color: blue;
+    color: white;
+  }
+
+  table {
+    border-spacing: 0;
+    border: 1px solid black;
+
+    tr {
+      :last-child {
+        td {
+          border-bottom: 0;
+        }
+      }
+    }
+
+    th,
+    td {
+      margin: 0;
+      padding: 0.5rem;
+      border-bottom: 1px solid black;
+      border-right: 1px solid black;
+
+      :last-child {
+        border-right: 0;
+      }
+    }
+  }
+`
 
 function Calendary(){
     const navigation = useNavigate();
@@ -57,7 +96,7 @@ function Calendary(){
     // onClick={()=>check(hour,day)}
     // const dayhour = ["9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00",
     //  "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00", "17:30", "18:00", "18:30", "19:00", "19:30", "20:00", "20:30", "21:00"];
-    const dayhour = ["900", "930", "1000", "1030", "1100", "1130"];
+    const dayhour = ["1100", "1200", "1300", "1400", "1500", "1600", "1700", "1800", "1900"];
     
     const check = (hour)=>{
         let data2=[];
@@ -228,12 +267,17 @@ function Agenda(){
     const navigation = useNavigate();
     return(
         <div>
-        <nav className="light-blue darken-4">
-            <div className="container">
-                <a className="brand-logo" href="" onClick={() => navigation("/menuprincipal")}>HM Salon</a>
-            </div>
-        </nav>
-        <Calendary/>
+            <Navlog/>
+        <card>
+      <center><h1>Agendar Hora</h1></center>
+      <br></br>
+      <center>
+    <Styles>
+    <Calendary/>
+      </Styles>
+      </center>
+      </card>
+        {/* <Calendary/> */}
         </div>
     )
 }

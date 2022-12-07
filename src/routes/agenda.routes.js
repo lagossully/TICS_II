@@ -55,4 +55,14 @@ router.use('/moddate/:id', async (req, res) => {
   const agenda = await Agenda.findByIdAndUpdate({_id:value}, NewDate);
       res.json(agenda);
 })
+
+router.use('/moddone/:id', async (req, res) => {
+  let value = req.params.id
+  
+  const {realizado} = req.body;
+  const NewDate = {realizado};
+  // console.log(value[0].split("f").join("/")+" "+value[1])
+  const agenda = await Agenda.findByIdAndUpdate({_id:value}, NewDate);
+      res.json(agenda);
+})
 module.exports = router;

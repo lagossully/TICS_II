@@ -1,8 +1,9 @@
 import React, { Component, useCallback } from "react";
-import { Form, Button, Card, Col} from 'react-bootstrap';
+import { Form, Button, Card, Col, NavLink,Stack} from 'react-bootstrap';
 import { useNavigate, Link} from "react-router-dom";
 import Select from "react-select";
 import moment from "moment/moment";
+import Navlog from "../navlog";
 
 function AsignarAgenda(){
     const navigate = useNavigate();
@@ -129,11 +130,8 @@ function AsignarAgenda(){
     else{
     return(
         <div>
-            <nav className="light-blue darken-4">
-                <div className="container">
-                    <a className="brand-logo" href="" onClick={() => navigate("/menuprincipal")}>HM Salon</a>
-                </div>
-            </nav>
+            <Navlog/>
+            
             <div className="container">
                 
             <Form.Label htmlFor="Nombre">Nombre</Form.Label>
@@ -171,7 +169,9 @@ function AsignarAgenda(){
                     onChange={telefono => onPhoneChange(telefono.target.value)}
                     required={true}
                 />
+
                 <Form.Text id="telefono" muted></Form.Text>
+                <br/>
                 <div className="row">
                     <Select
                         placeholder="Selecciona un peluquero"
@@ -180,6 +180,7 @@ function AsignarAgenda(){
                         options={data}
                     />
                 </div>
+                <br/>
                 <div className="row">
                     <Select
                         placeholder="Selecciona un servicio"
@@ -188,10 +189,17 @@ function AsignarAgenda(){
                         options={data2}
                     />
                 </div>
-                <Button variant="primary" type="submit" onClick={() => Handler()}>Siguiente</Button> 
-                <Button variant="primary" type="submit" onClick={() =>(Thisthis())}>this</Button> 
+                <Stack direction="horizontal" gap={3}>
+                <br/>
+                <br/>   
+                <br/>
+                <button type="button" className="btn btn-primary" onClick={()=> Handler()}>Siguiente</button>
+                <button type="button" className="btn btn-secondary" onClick={()=> Thisthis()}>this</button>
+                </Stack>
+                {/* <Button variant="primary" type="submit" onClick={() => Handler()}>Siguiente</Button> 
+                <Button variant="primary" type="submit" onClick={() =>(Thisthis())}>this</Button>  */}
             </div>
-        </div>
+        </div> 
     )}
 }
 export default AsignarAgenda;
