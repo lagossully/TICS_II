@@ -2,6 +2,7 @@ import React, { Component, useCallback } from "react";
 import { Form, Button, Card, Col, Stack} from 'react-bootstrap';
 import { useNavigate, Link} from "react-router-dom";
 import Navlog from "../navlog";
+import Auth from "../utils/auth";
 import UserTable from "./TablaUsuario";
 
 function UserLayout(){
@@ -10,6 +11,7 @@ function UserLayout(){
     return(
         <div>
             <Stack>
+                <Auth/>
                 <Navlog/>
             <br/>
             {/* <h2 className="text-center mb-4">Usuarios</h2> */}

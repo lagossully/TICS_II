@@ -1,12 +1,13 @@
 import React, { Component, useCallback, useState } from "react";
-import { Form, Button, Card, Col} from 'react-bootstrap';
-import Modal from 'react-bootstrap/Modal';
+import { Form, Button, Card, Col, Container, Row, Collapse, Modal, Stack, Navbar, Nav} from 'react-bootstrap';
+// import Modal from 'react-bootstrap/Modal';
 import { useNavigate, Link} from "react-router-dom";
 import moment from "moment/moment";
 import { ExactDay, FormatHour } from "../utils/time";
 import { MdOutlineArrowForwardIos, MdOutlineArrowBackIosNew } from 'react-icons/md';
 import Navlog from "../navlog";
 import styled from "styled-components";
+import Auth from "../utils/auth";
 
 
 
@@ -267,7 +268,22 @@ function Agenda(){
     const navigation = useNavigate();
     return(
         <div>
-            <Navlog/>
+            {/* <Auth></Auth> */}
+            
+            <Navbar bg="primary" variant="dark"> 
+            <Container>
+                <Navbar.Brand href="" onClick={() => navigation("/")}>
+                    <img src="https://i.ibb.co/WHbHr2B/Logo-sobre-moda-femenina-minimalista-neutral.png" alt="HM SALON"  width="50" height="50"/>
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav"  />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                        <Nav.Link href="" onClick={() => navigation("/sandbox")}>Sandbox</Nav.Link>
+                    </Nav>
+                    {/* <Button variant="light" onClick={()=>{localStorage.clear(), navigation("/")}}>Cerrar sesión</Button>{' '} */}
+                </Navbar.Collapse>
+                </Container>
+            </Navbar>
         <card>
       <center><h1>Agendar Hora</h1></center>
       <br></br>

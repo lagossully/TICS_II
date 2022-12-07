@@ -1,8 +1,9 @@
 import React, { Component, useCallback } from "react";
-import { Form, Button, Card, Col, Container, Row, Collapse, Modal, Stack} from 'react-bootstrap';
+import { Form, Button, Card, Col, Container, Row, Collapse, Modal, Stack, Navbar, Nav} from 'react-bootstrap';
 import { useNavigate, Link} from "react-router-dom";
 import Select from "react-select";
 import Navlog from "../navlog";
+import Auth from "../utils/auth";
 import { validate } from "../utils/rut";
 
 
@@ -185,7 +186,25 @@ function AsignarPeluquero(){
     else{
     return(
         <>
-            <Navlog/>
+            {/* <Auth/> */}
+            <Navbar bg="primary" variant="dark"> 
+            <Container>
+                <Navbar.Brand href="" onClick={() => navigation("/")}>
+                    <img src="https://i.ibb.co/WHbHr2B/Logo-sobre-moda-femenina-minimalista-neutral.png" alt="HM SALON"  width="50" height="50"/>
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav"  />
+                <Navbar.Collapse id="basic-navbar-nav">
+                    <Nav className="me-auto">
+                        <Nav.Link href="" onClick={() => navigation("/inventario")}>Inventario</Nav.Link>
+                        <Nav.Link href="" onClick={() => navigation("/ventas")}>Ventas</Nav.Link>
+                        <Nav.Link href="" onClick={() => navigation("/menuprincipal")}>Portada</Nav.Link>
+                        <Nav.Link href="" onClick={() => navigation("/sandbox")}>Sandbox</Nav.Link>
+                        <Nav.Link href="" onClick={() => navigation("/asignarhora")}>Pedir Cita (Usuario)</Nav.Link>
+                    </Nav>
+                    {/* <Button variant="light" onClick={()=>{localStorage.clear(), navigation("/")}}>Cerrar sesión</Button>{' '} */}
+                </Navbar.Collapse>
+                </Container>
+            </Navbar>
             <br/>
             <h2 className="text-center mb-4">Agendar Hora</h2>
             <Container>

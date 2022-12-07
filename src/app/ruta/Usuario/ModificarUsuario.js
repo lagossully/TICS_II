@@ -3,6 +3,7 @@ import { Form, Button, Stack} from 'react-bootstrap';
 import Select from "react-select";
 import { useNavigate, Link} from "react-router-dom";
 import Navlog from "../navlog";
+import Auth from "../utils/auth";
 
 function ModificarUsuario (){
     const navigation = useNavigate();
@@ -144,6 +145,7 @@ function ModificarUsuario (){
     return(
         <div>
         <Stack gap={3}>
+            <Auth/>
             <Navlog/>
             <br/>
             <h2 className="text-center mb-4">Modificacion de usuario</h2>

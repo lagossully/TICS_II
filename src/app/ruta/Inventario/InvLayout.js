@@ -4,6 +4,7 @@ import { useNavigate, Link} from "react-router-dom";
 import TablaInventario from "./TablaInventario";
 import TablaProductos from "./TablaProductos";
 import Navlog from "../navlog";
+import Auth from "../utils/auth";
 
 
 function InventoryLayout(){
@@ -16,6 +17,7 @@ function InventoryLayout(){
 
     return(
         <div>
+            <Auth/>
             <Navlog/>
             <br/>
 

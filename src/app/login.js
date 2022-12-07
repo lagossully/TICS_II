@@ -38,8 +38,9 @@ function Login (){
               localStorage.setItem("AuthidHM", item._id);
               localStorage.setItem("AuthnomHM", item.nombre);
               localStorage.setItem("AuthmailHM", item.correo);
+              localStorage.setItem("AuthprofHM", item.perfil);
               localStorage.setItem("AuthtimeHM", moment().format('YYYY MM DD hh mm'));
-              // navigation("/menuprincipal")
+              navigation("/menuprincipal")
             }
             else{
               count++;
@@ -116,18 +117,18 @@ function Login (){
         <Form.Label>Contraseña</Form.Label>
         <Form.Control type="password" onChange={(e)=>onPassChange(e.target.value)} required />
       </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicCheckbox">
+      {/* <Form.Group className="mb-3" controlId="formBasicCheckbox">
         <Form.Check type="checkbox" label="Recordar contraseña" />
-      </Form.Group>
+      </Form.Group> */}
       <Button variant="primary" onClick={()=>{handleSubmit()}}>
         Ingresar
       </Button>
-      <Button variant="primary" onClick={()=>{borrar()}}>
+      {/* <Button variant="primary" onClick={()=>{borrar()}}>
         Borrar
       </Button>
       <Button variant="primary" onClick={()=>{console.log(time)}}>
         this
-      </Button>
+      </Button> */}
     </Form>
     </Container>
     </Container>

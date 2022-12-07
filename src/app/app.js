@@ -59,7 +59,7 @@ function App (){
         <Route path="modificaragenda" element={<ModificarAgenda/>} />
 
 
-        <Route path="crearservicio" element={<CrearServicio/>} />
+        {/* <Route path="crearservicio" element={<CrearServicio/>} /> */}
 
         <Route path="pedirhora" element={<Agenda/>} />
         <Route path="asignarhora" element={<AsignarPeluquero/>} />
@@ -67,9 +67,9 @@ function App (){
         <Route path="login" element={<Login/>} />
 
 
-        <Route path="dashboard" element={<RealDashboard/>} />
+        {/* <Route path="dashboard" element={<RealDashboard/>} /> */}
 
-        <Route path="test" element={<Test/>} /> {/*vista de prueba*/}
+        {/* <Route path="test" element={<Test/>} /> vista de prueba */}
 
         <Route path="/sandbox" element={<Sandbox/>} />
       </Routes>

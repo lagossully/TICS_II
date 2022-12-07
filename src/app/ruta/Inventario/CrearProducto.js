@@ -3,6 +3,7 @@ import { Form, Button, Stack} from 'react-bootstrap';
 import Select from "react-select";
 import { useNavigate, Link} from "react-router-dom";
 import Navlog from "../navlog";
+import Auth from "../utils/auth";
 
 function CrearProducto (){
     const navigation = useNavigate();
@@ -47,6 +48,7 @@ function CrearProducto (){
 
     return(
         <div>
+            <Auth/>
             <Navlog/>
             <br/>
             <h2 className="text-center mb-4">Crear Producto</h2>

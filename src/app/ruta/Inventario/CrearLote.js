@@ -3,6 +3,7 @@ import { Form, Button, Col, Row, Stack} from 'react-bootstrap';
 import Select from "react-select";
 import { useNavigate, Link} from "react-router-dom";
 import Navlog from "../navlog";
+import Auth from "../utils/auth";
 
 function CrearLote (){
     const navigation = useNavigate();
@@ -67,6 +68,7 @@ function CrearLote (){
 
     return(
         <div>
+            <Auth/>
             <Navlog/>
             <br/>
             <h2 className="text-center mb-4">Crear Lote</h2>

@@ -4,6 +4,7 @@ import { useNavigate, Link} from "react-router-dom";
 import Select from "react-select";
 import moment from "moment/moment";
 import Navlog from "../navlog";
+import Auth from "../utils/auth";
 
 function AsignarAgenda(){
     const navigate = useNavigate();
@@ -130,6 +131,7 @@ function AsignarAgenda(){
     else{
     return(
         <div>
+            <Auth/>
             <Navlog/>
             
             <div className="container">

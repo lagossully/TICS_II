@@ -4,6 +4,7 @@ import Select from "react-select";
 import { useNavigate, Link} from "react-router-dom";
 import { MdOutlineLocalLaundryService } from "react-icons/md";
 import Navlog from "../navlog";
+import Auth from "../utils/auth";
 
 function CrearUsuario (){
     const navigation = useNavigate();
@@ -75,7 +76,7 @@ function CrearUsuario (){
         
         
         <div>
-           
+                <Auth/>
                 <Navlog/>
                     <br/>
                     <nav className="light-blue darken-4 mt-3">

@@ -3,6 +3,7 @@ import { Form, Button, Row} from 'react-bootstrap';
 import Select from "react-select";
 import { useNavigate, Link} from "react-router-dom";
 import Navlog from "../navlog";
+import Auth from "../utils/auth";
 
 function ModificarLote (){
     const navigation = useNavigate();
@@ -73,6 +74,7 @@ function ModificarLote (){
     else{
     return(
         <div>
+            <Auth/>
             <Navlog/>
             <br/>
             <br/>

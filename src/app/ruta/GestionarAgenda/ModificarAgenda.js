@@ -7,6 +7,7 @@ import { ExactDay, FormatHour } from "../utils/time";
 import { MdOutlineArrowForwardIos, MdOutlineArrowBackIosNew } from 'react-icons/md';
 import styled from "styled-components";
 import Navlog from "../navlog";
+import Auth from "../utils/auth";
 
 
 const Styles = styled.div`
@@ -232,6 +233,7 @@ function ModificarAgenda(){
            <div>
         
         <Navlog/>
+        <Auth/>
         <card>
       <center><h1>Agendar Hora</h1></center>
       <br></br>
