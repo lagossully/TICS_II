@@ -1,5 +1,5 @@
 import React, { Component, useCallback } from "react";
-import { Form, Button, Card, Col, Navbar, Nav, Container,Stack} from 'react-bootstrap';
+import { Form, Button, Card, Col, Navbar, Nav, Container,Stack, Row} from 'react-bootstrap';
 import Select from "react-select";
 import { useNavigate, Link} from "react-router-dom";
 import Navlog from "./navlog";
@@ -309,27 +309,42 @@ function Dashboard (){
                 </div>
             </div>
             </Stack>
-            
-            { (chart1[1])? <Styles ><BarChart ylabel='Cantidad'
-                  width={700}
-                  height={700}
-                  margin={{top: 150, right: 150, bottom: 150, left: 150}}
-                  data={chart1}
-                  /> </Styles> :null}
-            
-            { (chart2[2])? <Styles ><BarChart ylabel='Cantidad'
-                  width={700}
-                  height={700}
-                  margin={{top: 150, right: 150, bottom: 150, left: 150}}
-                  data={chart2}
-                  /> </Styles> :null}
 
-            { (chart3[2])? <Styles ><BarChart ylabel='Cantidad'
-                  width={700}
-                  height={700}
-                  margin={{top: 150, right: 150, bottom: 150, left: 150}}
+            <br/>
+            <br/>
+            <Container>
+              <h3> Dashboard</h3>
+              <br></br>
+            <Card>
+              
+            <div className="row">
+            <Col>
+            { (chart1[1])?<Styles ><BarChart ylabel='Cantidad'
+                  width={600}
+                  height={600}
+                  margin={{top: 120, right: 120, bottom: 120, left: 120}}
+                  data={chart1}
+                  /> </Styles>:null}
+                  </Col>  
+            
+            <Col>{ (chart2[2])? <Styles ><BarChart ylabel='Cantidad'
+                  width={600}
+                  height={600}
+                  margin={{top: 120, right: 120, bottom: 120, left: 120}}
+                  data={chart2}
+                  /> </Styles>:null}</Col> 
+
+            <Col>{ (chart3[2])? <Styles ><BarChart ylabel='Cantidad'
+                  width={600}
+                  height={600}
+                  margin={{top: 120, right: 120, bottom: 120, left: 120}}
                   data={chart3}
-                  /> </Styles> :null}
+                  /> </Styles> :null}</Col>
+                  </div>
+                  
+                  </Card>
+            </Container>
+
                   </>: <>
                   {/* ACA PARTE LA VISTA D */}
                   <><Stack gap={3}>
@@ -342,6 +357,9 @@ function Dashboard (){
                         <Card>
                             <Card.Body>
                                 <Card.Title>Inventario</Card.Title>
+                                  <div class="card-image">
+                                    <img src="https://www.defontana.com/cl/wp-content/uploads/2017/07/Sistema-control-inventarios.png" alt="Image" width="350" height="280" />
+                                  </div>
                                 <Card.Text>
                                     <Link to="/inventario">Acceso a al inventario</Link>
                                 </Card.Text>
@@ -353,6 +371,9 @@ function Dashboard (){
                         <Card>
                             <Card.Body>
                                 <Card.Title>Gestionar Agenda</Card.Title>
+                                <div class="card-image">
+                                  <img src="https://estudiantes.udp.cl/cms/wp-content/uploads/2019/09/1546524164_096288_1546524726_noticia_normal-calendario.jpg" alt="Image" width="300" height="280"/>
+                                </div>
                                 <Card.Text>
                                     <Link to="/gestionaragenda">Gestionar Agenda</Link>
                                 </Card.Text>

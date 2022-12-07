@@ -46,7 +46,7 @@ function InventoryLayout(){
                     <br/>
                     <br/>
                     <Link to="/crearlote"><button type="button" className="btn btn-primary">Crear lote</button></Link>
-                    <Link to="/modificarlote"><button type="button" className="btn btn-primary">Modificar lote</button></Link>
+                    {/* <Link to="/modificarlote"><button type="button" className="btn btn-primary">Modificar lote</button></Link> */}
                 </Stack>
             </center> 
         </>} 
