@@ -221,7 +221,7 @@ function AsignarPeluquero(){
         </Form.Text>
                         <br/>
                 <br/>
-                        <Button onClick={()=>{AreYou(rut), setOpen3(!open3)}}> Continuar</Button>
+                        <Button onClick={()=>{AreYou(rut), setOpen3(!open3) } } disabled={(rutValidate||!validate(rut))}> Continuar</Button>
                     </Form.Group>
                 </Collapse>
                 {open3? <div>rut: {rut}</div> : null}

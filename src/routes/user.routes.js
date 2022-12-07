@@ -20,27 +20,27 @@ router.get('/:id', async (req, res) => {
 
 // ADD a new task
 router.post('/', async (req, res) => {
-  const { nombre, rut, correo, pass, perfil, horario } = req.body;
-  bcrypt
-    .hash(pass, 10)
-    .then((hashedPassword) => {
-      // create a new user instance and collect the data
-      const user = new Usuario({
-        nombre: nombre,
-        rut: rut,
-        correo: correo,
-        pass: hashedPassword,
-        perfil: perfil,
-        horario: horario
-      });
-      user
-        .save()
-    // const { name, rut, mail, pass, perfil } = req.body;
-    // const task = new Task({name, rut, mail, pass, perfil});
+  // const { nombre, rut, correo, pass, perfil, horario } = req.body;
+  // bcrypt
+  //   .hash(pass, 10)
+  //   .then((hashedPassword) => {
+  //     // create a new user instance and collect the data
+  //     const user = new Usuario({
+  //       nombre: nombre,
+  //       rut: rut,
+  //       correo: correo,
+  //       pass: hashedPassword,
+  //       perfil: perfil,
+  //       horario: horario
+  //     });
+  //     user
+  //       .save()
+    const { name, rut, mail, pass, perfil, horario } = req.body;
+    const task = new Task({name, rut, mail, pass, perfil, horario});
     // console.log(task)
-    // await task.save();
+    await task.save();
     res.json({status: 'Usuario Guardado'});
-  });
+  // });
 });
 
 // UPDATE a new task
