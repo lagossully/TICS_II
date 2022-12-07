@@ -5,7 +5,8 @@ const AgendaSchema = new Schema({
     usuario: { type: String, require: true},
     cliente: {type: String, require: true },
     servicio: { type: String, require: true},
-    fecha: {type: String, require: true }
+    fecha: {type: String, require: true },
+    realizado: {type: String, require: true }
 });
 
 // const UserSchema = new Schema({

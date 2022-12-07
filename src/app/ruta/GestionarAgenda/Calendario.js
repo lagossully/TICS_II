@@ -51,6 +51,11 @@ function Calendary(){
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
+    
+    const [show2, setShow2] = useState(false);
+    const handleClose2 = () => setShow(false);
+    const handleShow2 = () => setShow(true);
+
 
     const [data, setData] = React.useState([]);
     const [isFetching, setIsFetching] = React.useState(false);
@@ -136,7 +141,7 @@ function Calendary(){
         let message={
             realizado:"No"
         }
-        fetch("/mod/agenda/moddone/"+citaid,{ //agregar cita
+        fetch("/mod/agenda/moddone/"+citaid,{ //agregar cita 
             method:"PUT",
             headers:{
                 "Accept":"application/json",
@@ -144,10 +149,27 @@ function Calendary(){
             },
             body: JSON.stringify(message)
         })
-        .then(res => {console.log(res)})
+            .then(res => {console.log(res); navigate("/gestionaragenda")})
             // .then(res => {console.log(res)})
             .catch(err => console.error(err))
+    }
 
+    const Realizada = (citaid) => {
+        // console.log(citaid)
+        let message={
+            realizado:"No"
+        }
+        fetch("/mod/agenda/moddone/"+citaid,{ //agregar cita 
+            method:"PUT",
+            headers:{
+                "Accept":"application/json",
+                "Content-Type":"application/json"
+            },
+            body: JSON.stringify(message)
+        })
+            .then(res => {console.log(res); navigate("/gestionaragenda")})
+            // .then(res => {console.log(res)})
+            .catch(err => console.error(err))
     }
 
     const Modify = (id) => {
@@ -227,14 +249,14 @@ function Calendary(){
                                 {/* <Accordion.Body>Peluquero: {dataAgenda[0].usuario} </Accordion.Body> */}
                                 <Accordion.Body>Cliente: {dataAgenda[0].cliente} </Accordion.Body>
                                 <Accordion.Body>Servicios: {dataAgenda[0].servicio}  </Accordion.Body>
-                                <Accordion.Body>
+                                {(dataAgenda[0].realizado === "Pendiente")? <Accordion.Body>
                                     <Row>
-                                        <Col> <Link onClick={() => Modify(dataAgenda[0])}>Marcar como realizada</Link> </Col>
+                                        <Col> <Link onClick={() => Realizada(dataAgenda[0])}>Marcar como realizada</Link> </Col>
                                         <Col> <Link onClick={() => NoRealizada(dataAgenda[0]._id)}>Marcar como no realizada </Link> </Col>
                                         <Col> <Link to="/modificaragenda" onClick={() => Modify(dataAgenda[0])}>Modificar</Link> </Col>
                                         <Col> <Link onClick={()=>Delete(dataAgenda[0]._id)}>Eliminar</Link> </Col>
                                     </Row>
-                                </Accordion.Body>
+                                </Accordion.Body>:null}
                             </Accordion.Item>: 
                             <Accordion.Item eventKey="0">
                                 <Accordion.Header>Horario Disponible</Accordion.Header>
@@ -315,6 +337,15 @@ function Calendary(){
                     </Button> */}
                 </Modal.Footer>
             </Modal>
+            <Modal size={"lg"} show={show2} onHide={handleClose2} centered >
+                <Modal.Header closeButton>
+                    <Modal.Title> Se a abierto un producto?</Modal.Title>
+                </Modal.Header>
+
+                
+
+            </Modal>
+
             {/* <Button onClick={()=> console.log(sessionStorage.getItem("id"),sessionStorage.getItem("modauser"), sessionStorage.getItem("modaservicio"), sessionStorage.getItem("modacliente"))}>thiss</Button> */}
         </div>
     )}

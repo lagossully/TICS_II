@@ -123,7 +123,7 @@ function Login (){
         Ingresar
       </Button>
       <Button variant="primary" onClick={()=>{borrar()}}>
-        this
+        Borrar
       </Button>
       <Button variant="primary" onClick={()=>{console.log(time)}}>
         this

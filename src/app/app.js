@@ -30,6 +30,7 @@ import Portada from "./ruta/Portada";
 import ModificarAgenda from "./ruta/GestionarAgenda/ModificarAgenda";
 import ModificarLote from "./ruta/Inventario/ModificarLote";
 import Login from "./login";
+import RealDashboard from "./ruta/Dashboard/RealDashboard";
 
 
 
@@ -64,6 +65,9 @@ function App (){
         <Route path="asignarhora" element={<AsignarPeluquero/>} />
 
         <Route path="login" element={<Login/>} />
+
+
+        <Route path="dashboard" element={<RealDashboard/>} />
 
         <Route path="test" element={<Test/>} /> {/*vista de prueba*/}
 

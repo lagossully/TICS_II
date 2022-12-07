@@ -1,7 +1,8 @@
 import React, { Component, useCallback } from "react";
-import { Form, Button, Card, Col, Container, Row, Collapse, Modal} from 'react-bootstrap';
+import { Form, Button, Card, Col, Container, Row, Collapse, Modal, Stack} from 'react-bootstrap';
 import { useNavigate, Link} from "react-router-dom";
 import Select from "react-select";
+import Navlog from "../navlog";
 import { validate } from "../utils/rut";
 
 
@@ -184,11 +185,9 @@ function AsignarPeluquero(){
     else{
     return(
         <>
-            <nav className="light-blue darken-4">
-                <div className="container">
-                    <a className="brand-logo" href="" onClick={() => navigate("/menuprincipal")}>HM Salon</a>
-                </div>
-            </nav>
+            <Navlog/>
+            <br/>
+            <h2 className="text-center mb-4">Agendar Hora</h2>
             <Container>
                 <Collapse in={!open3}>
                     <Form.Group>
@@ -198,6 +197,11 @@ function AsignarPeluquero(){
                             onChange={rut => onRutChange(rut.target.value)}
                             required={true}
                         />
+                        <Form.Text className="text-muted">
+          Ingrese su rut sin puntos ni guión
+        </Form.Text>
+                        <br/>
+                <br/>
                         <Button onClick={()=>{AreYou(rut), setOpen3(!open3)}}> Continuar</Button>
                     </Form.Group>
                 </Collapse>
@@ -231,6 +235,7 @@ function AsignarPeluquero(){
                 </Collapse>
                 <Collapse in={open2} >
                     <div>
+                        <br/>
                         <Row>
                             <Select
                                 placeholder="Selecciona un peluquero"
@@ -239,7 +244,9 @@ function AsignarPeluquero(){
                                 options={dataOb}
                             />
                         </Row>
+                        <br/>
                         <Row>
+                        <br/>
                             <Select
                                 placeholder="Selecciona un servicio"
                                 value={servicio}
@@ -251,13 +258,19 @@ function AsignarPeluquero(){
                         {/* <Button onClick={()=> console.log(validate(rut))}> asdasdasd</Button> */}
                     </div>
                 </Collapse>
+
+                <br/>
+                <Stack direction="horizontal" gap={3}>
                 {open3? <Button onClick={()=>navigate("/menuprincipal")}>Cancelar</Button> : null}
                 {(next===3)? <Button onClick={()=>NextStep()} disabled={(peluqueroValidate 
                 || servicioValidate)}>Siguiente</Button> : (next===1 || next===2)?
                     <Button variant="primary" type="submit" onClick={() => NextStep()} disabled={
                     ( nombreValidate || rutValidate || correoValidate ||  telefonoValidate 
                     || peluqueroValidate || servicioValidate || !validate(rut))}>Siguiente</Button>: null }
+                </Stack>
 
+<br/>
+                
 
             </Container>
             {(userData.length >0 )? <Modal show={show} onHide={handleClose}>

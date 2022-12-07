@@ -13,8 +13,10 @@ function Navlog (){
 
             <Navbar bg="primary" variant="dark"> 
             <Container>
-                <Navbar.Brand href="" onClick={() => navigation("/")}>HM Salon</Navbar.Brand>
-                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                <Navbar.Brand href="" onClick={() => navigation("/")}>
+                    <img src="https://i.ibb.co/WHbHr2B/Logo-sobre-moda-femenina-minimalista-neutral.png" alt="HM SALON"  width="50" height="50"/>
+                </Navbar.Brand>
+                <Navbar.Toggle aria-controls="basic-navbar-nav"  />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
                         {/* <Nav.Link href="" onClick={() => navigation("/inventario")}>Inventario</Nav.Link>
@@ -23,7 +25,7 @@ function Navlog (){
                         <Nav.Link href="" onClick={() => navigation("/sandbox")}>Sandbox</Nav.Link>
                         <Nav.Link href="" onClick={() => navigation("/asignarhora")}>Pedir Cita (Usuario)</Nav.Link>
                     </Nav>
-                    <Button variant="light">Cerrar secion</Button>{' '}
+                    <Button variant="light">Cerrar sesión</Button>{' '}
                 </Navbar.Collapse>
                 </Container>
             </Navbar>

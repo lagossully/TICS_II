@@ -1,25 +1,59 @@
 import React, { Component } from "react";
-import { Form, Button} from 'react-bootstrap';
-import Select from "react-select";
-import { useNavigate, Link} from "react-router-dom";
-import { MdOutlineLocalLaundryService } from "react-icons/md";
+// import BarChart from 'react-bar-chart';
+// import { Form, Button} from 'react-bootstrap';
+// import Select from "react-select";
+// import { useNavigate, Link} from "react-router-dom";
+// import { MdOutlineLocalLaundryService } from "react-icons/md";
 import Auth from "../utils/auth";
 
 
-function Sandbox(){
-    return(
-        <>
-            <Auth/>
-            <h1>hola</h1>
-            {/* {console.log(localStorage.getItem("AuthidHM"))} */}
-        </>
-    )
-}
+// import ResizableBox from "../ResizableBox";
+// import useDemoConfig from "../useDemoConfig";
+// import React from "react";
+// import { AxisOptions, Chart } from "react-charts";
 
+function Sandbox(){
+      
+      
+        // const primaryAxis = React.useMemo<
+        //   AxisOptions<typeof data[number]["data"][number]
+        // >(() => ({
+        //     getValue: (datum) => datum.primary,
+        //   }),
+        //   []
+        // );
+      
+        // const secondaryAxes = React.useMemo<
+        //   AxisOptions<typeof data[number]["data"][number]>[]
+        // >(
+        //   () => [
+        //     {
+        //       getValue: (datum) => datum.secondary,
+        //     },
+        //   ],
+        //   []
+        // );
+      
+        return (
+          <>
+            <Auth/>
+          </>
+        );
+      
+    // return(<></>)
+}
 export default Sandbox;
 
 
 
+// return(
+//     <>
+//         <Auth/>
+//         <h1>hola</h1>
+//         {/* {console.log(localStorage.getItem("AuthidHM"))} */}
+//     </>
+// )
+// }
 
 
 

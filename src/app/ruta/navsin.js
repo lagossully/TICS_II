@@ -25,7 +25,7 @@ function Navsin (){
             </Nav>
 
         </Navbar.Collapse>
-        <Button variant="light">Iniciar secion</Button>{' '}
+        <Button variant="light">Iniciar sesión</Button>{' '}
         </Container>
     </Navbar>
        
