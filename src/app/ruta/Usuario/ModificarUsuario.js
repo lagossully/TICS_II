@@ -4,6 +4,7 @@ import Select from "react-select";
 import { useNavigate, Link} from "react-router-dom";
 import Navlog from "../navlog";
 import Auth from "../utils/auth";
+import {validate} from "../utils/rut";
 
 function ModificarUsuario (){
     const navigation = useNavigate();
@@ -26,6 +27,48 @@ function ModificarUsuario (){
     const onMailChange=(value)=>setMail(value);
     const onPerfilChange=(value)=>setPerfil(value);
     const onHorarioChange=(value)=>setHorario(value);
+
+    const nombreValidate = React.useMemo(()=>{
+        if(name.length>0){
+            return false;
+        }
+        return true;
+    },[name]);
+
+    const rutValidate = React.useMemo(()=>{
+        if(rut.length>0){
+            return false;
+        }
+        return true;
+    },[rut]);
+
+    const passValidate = React.useMemo(()=>{
+        if(pass.length>0){
+            return false;
+        }
+        return true;
+    },[pass]);
+
+    const mailValidate = React.useMemo(()=>{
+        if(mail.length>0){
+            return false;
+        }
+        return true;
+    },[mail]);
+
+    const perfilValidate = React.useMemo(()=>{
+        if(perfil === ""){
+            return true;
+        }
+        return false;
+    },[perfil]);
+
+    const horarioValidate = React.useMemo(()=>{
+        if(horario === ""){
+            return true;
+        }
+        return false;
+    },[horario]);
     
     const [id, setId] = React.useState("");
     useEffect(() => {
@@ -206,10 +249,12 @@ function ModificarUsuario (){
                     className="basic-multi-select"
                     classNamePrefix="select"
                 />
-                <Button variant="info" onClick={Handler}>Modificar Usuario</Button>
+                <Button variant="info" onClick={Handler} disabled={
+                    ( nombreValidate || rutValidate || passValidate ||  mailValidate 
+                    || perfilValidate || horarioValidate || !validate(rut))}>Modificar Usuario</Button>
                 <Button variant="info" onClick={() => navigation("/usuario")}>Cancelar</Button>
                 <Button variant="warning" onClick={() => Delete()}>Eliminar</Button>
-                <Button variant="warning" onClick={() => console.log(sessionStorage.getItem("horario").split(""))}>asd</Button>
+                {/* <Button variant="warning" onClick={() => console.log(sessionStorage.getItem("horario").split(""))}>asd</Button> */}
                 
                 {/* <Link to={"../prod"} >try</Link>         */}
             </div>

@@ -219,14 +219,14 @@ function Dashboard (){
          <div class="col-lg-4 col-md-7 col-sm-9">
             <div class="single-card card-style-one">
                <div class="card-image">
-                  <img src="https://cdn-icons-png.flaticon.com/512/6073/6073873.png" />
+                  <img src="https://cdn-icons-png.flaticon.com/512/6073/6073873.png" width="250" height="250"/>
                </div>
                <div class="card-content">
                   <h4 class="card-title">
-                     <a href="javascript:void(0)">Item title is here</a>
+                    <Link to="/usuario">Usuarios</Link>
                   </h4>
                   <p class="text">
-                     Short description for the ones who look for something new
+                     Gestionar usuarios
                   </p>
                </div>
             </div>
@@ -236,14 +236,14 @@ function Dashboard (){
          <div class="col-lg-4 col-md-7 col-sm-9">
             <div class="single-card card-style-one">
                <div class="card-image">
-                  <img src="https://cdn.ayroui.com/1.0/images/card/card-2.jpg" alt="Image" />
+                  <img src="https://www.defontana.com/cl/wp-content/uploads/2017/07/Sistema-control-inventarios.png" alt="Image" width="350" height="280" />
                </div>
                <div class="card-content">
                   <h4 class="card-title">
-                     <a href="javascript:void(0)">Item title is here</a>
+                    <Link to="/inventario">Inventario</Link>
                   </h4>
                   <p class="text">
-                     Short description for the ones who look for something new
+                     Acceso al inventario
                   </p>
                </div>
             </div>
@@ -253,14 +253,14 @@ function Dashboard (){
          <div class="col-lg-4 col-md-7 col-sm-9">
             <div class="single-card card-style-one">
                <div class="card-image">
-                  <img src="https://cdn.ayroui.com/1.0/images/card/card-3.jpg" alt="Image" />
+                  <img src="https://estudiantes.udp.cl/cms/wp-content/uploads/2019/09/1546524164_096288_1546524726_noticia_normal-calendario.jpg" alt="Image" width="300" height="280"/>
                </div>
                <div class="card-content">
                   <h4 class="card-title">
-                     <a href="javascript:void(0)">Item title is here</a>
+                    <Link to="/gestionaragenda">Agenda</Link>
                   </h4>
                   <p class="text">
-                     Short description for the ones who look for something new
+                     Gestionar agenda
                   </p>
                </div>
             </div>
@@ -278,9 +278,9 @@ function Dashboard (){
                     <div className="col s12 m6">
                         <Card>
                             <Card.Body>
-                                <Card.Title>Usuario</Card.Title>
+                                <Card.Title>Desarrollo Futuro</Card.Title>
                                 <Card.Text>
-                                    <Link to="/usuario">Gestionar Usuarios</Link>
+                                    <Link to="/usuario">Desarrollo Futuro</Link>
                                 </Card.Text>
                             </Card.Body>
                         </Card>
@@ -288,9 +288,9 @@ function Dashboard (){
                     <div className="col s12 m6">
                         <Card>
                             <Card.Body>
-                                <Card.Title>Inventario</Card.Title>
+                                <Card.Title>Desarrollo Futuro</Card.Title>
                                 <Card.Text>
-                                    <Link to="/inventario">Acceso a al inventario</Link>
+                                    <Link to="/inventario">Desarrollo Futuro</Link>
                                 </Card.Text>
                             </Card.Body>
                         </Card>
@@ -299,9 +299,9 @@ function Dashboard (){
                     <div className="col s12 m6">
                         <Card>
                             <Card.Body>
-                                <Card.Title>Gestionar Agenda</Card.Title>
+                                <Card.Title>Desarrollo Futuro</Card.Title>
                                 <Card.Text>
-                                    <Link to="/gestionaragenda">Gestionar Agenda</Link>
+                                    <Link to="/gestionaragenda">Desarrollo Futuro</Link>
                                 </Card.Text>
                             </Card.Body>
                         </Card>

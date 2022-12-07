@@ -5,6 +5,7 @@ import { useNavigate, Link} from "react-router-dom";
 import { MdOutlineLocalLaundryService } from "react-icons/md";
 import Navlog from "../navlog";
 import Auth from "../utils/auth";
+import {validate} from "../utils/rut";
 
 function CrearUsuario (){
     const navigation = useNavigate();
@@ -13,8 +14,8 @@ function CrearUsuario (){
     const [rut, setRut] = React.useState("");
     const [pass, setPass] = React.useState("");
     const [mail, setMail] = React.useState("");
-    const [perfil, setPerfil] = React.useState("1");
-    const [horario, setHorario] = React.useState([]);
+    const [perfil, setPerfil] = React.useState("");
+    const [horario, setHorario] = React.useState("");
 
     const onNameChange=(value)=>setName(value);
     const onRutChange=(value)=>setRut(value);
@@ -22,6 +23,48 @@ function CrearUsuario (){
     const onMailChange=(value)=>setMail(value);
     const onPerfilChange=(value)=>setPerfil(value);
     const onHorarioChange=(value)=>setHorario(value);
+
+    const nombreValidate = React.useMemo(()=>{
+        if(name.length>0){
+            return false;
+        }
+        return true;
+    },[name]);
+
+    const rutValidate = React.useMemo(()=>{
+        if(rut.length>0){
+            return false;
+        }
+        return true;
+    },[rut]);
+
+    const passValidate = React.useMemo(()=>{
+        if(pass.length>0){
+            return false;
+        }
+        return true;
+    },[pass]);
+
+    const mailValidate = React.useMemo(()=>{
+        if(mail.length>0){
+            return false;
+        }
+        return true;
+    },[mail]);
+
+    const perfilValidate = React.useMemo(()=>{
+        if(perfil === ""){
+            return true;
+        }
+        return false;
+    },[perfil]);
+
+    const horarioValidate = React.useMemo(()=>{
+        if(horario === ""){
+            return true;
+        }
+        return false;
+    },[horario]);
     
 
     const options =[
@@ -141,7 +184,9 @@ function CrearUsuario (){
                 <br/>
                 <center>
                 <Stack direction="horizontal" gap={3}>
-                <Button variant="info" onClick={Handler}>Crear usuario</Button>
+                <Button variant="info" onClick={Handler} disabled={
+                    ( nombreValidate || rutValidate || passValidate ||  mailValidate 
+                    || perfilValidate || horarioValidate || !validate(rut))}>Crear usuario</Button>
                 <Button variant="secondary" onClick={() => navigation("/usuario")}>Cancelar</Button>
                 </Stack>
                 

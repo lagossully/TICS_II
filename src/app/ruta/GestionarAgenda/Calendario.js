@@ -136,10 +136,10 @@ function Calendary(){
         e.preventDefault();
     }
 
-    const NoRealizada = (citaid) => {
+    const NoRealizada = (citaid,res) => {
         // console.log(citaid)
         let message={
-            realizado:"No"
+            realizado:res
         }
         fetch("/mod/agenda/moddone/"+citaid,{ //agregar cita 
             method:"PUT",
@@ -154,23 +154,23 @@ function Calendary(){
             .catch(err => console.error(err))
     }
 
-    const Realizada = (citaid) => {
-        // console.log(citaid)
-        let message={
-            realizado:"No"
-        }
-        fetch("/mod/agenda/moddone/"+citaid,{ //agregar cita 
-            method:"PUT",
-            headers:{
-                "Accept":"application/json",
-                "Content-Type":"application/json"
-            },
-            body: JSON.stringify(message)
-        })
-            .then(res => {console.log(res); navigate("/gestionaragenda")})
-            // .then(res => {console.log(res)})
-            .catch(err => console.error(err))
-    }
+    // const Realizada = (citaid,res) => {
+    //     console.log(res)
+    //     let message={
+    //         realizado:"No"
+    //     }
+    //     // fetch("/mod/agenda/moddone/"+citaid,{ //agregar cita 
+    //     //     method:"PUT",
+    //     //     headers:{
+    //     //         "Accept":"application/json",
+    //     //         "Content-Type":"application/json"
+    //     //     },
+    //     //     body: JSON.stringify(message)
+    //     // })
+    //     //     .then(res => {console.log(res); navigate("/gestionaragenda")})
+    //     //     // .then(res => {console.log(res)})
+    //     //     .catch(err => console.error(err))
+    // }
 
     const Modify = (id) => {
         sessionStorage.setItem("id", id._id);
@@ -251,8 +251,8 @@ function Calendary(){
                                 <Accordion.Body>Servicios: {dataAgenda[0].servicio}  </Accordion.Body>
                                 {(dataAgenda[0].realizado === "Pendiente")? <Accordion.Body>
                                     <Row>
-                                        <Col> <Link onClick={() => Realizada(dataAgenda[0])}>Marcar como realizada</Link> </Col>
-                                        <Col> <Link onClick={() => NoRealizada(dataAgenda[0]._id)}>Marcar como no realizada </Link> </Col>
+                                        <Col> <Link onClick={() => Realizada(dataAgenda[0]._id,"Si")}>Marcar como realizada</Link> </Col>
+                                        <Col> <Link onClick={() => NoRealizada(dataAgenda[0]._id,"No")}>Marcar como no realizada </Link> </Col>
                                         <Col> <Link to="/modificaragenda" onClick={() => Modify(dataAgenda[0])}>Modificar</Link> </Col>
                                         <Col> <Link onClick={()=>Delete(dataAgenda[0]._id)}>Eliminar</Link> </Col>
                                     </Row>
@@ -272,8 +272,8 @@ function Calendary(){
                                 <Accordion.Body>Servicios: {dataAgenda[1].servicio}  </Accordion.Body>
                                 <Accordion.Body>
                                     <Row>
-                                        <Col> <Link onClick={() => Modify(dataAgenda[1])}>Marcar como realizada</Link> </Col>
-                                        <Col> <Link onClick={() => Modify(dataAgenda[1])}>Marcar como no realizada </Link> </Col>
+                                        <Col> <Link onClick={() => Realizada(dataAgenda[1]._id,"Si")}>Marcar como realizada</Link> </Col>
+                                        <Col> <Link onClick={() => NoRealizada(dataAgenda[1]._id,"No")}>Marcar como no realizada </Link> </Col>
                                         <Col> <Link to="/modificaragenda" onClick={() => Modify(dataAgenda[1])}>Modificar</Link> </Col>
                                         <Col> <Link onClick={()=>Delete(dataAgenda[1]._id)}>Eliminar</Link> </Col>
                                     </Row>
@@ -293,8 +293,8 @@ function Calendary(){
                                 <Accordion.Body>Servicios: {dataAgenda[2].servicio}  </Accordion.Body>
                                 <Accordion.Body>
                                     <Row>
-                                        <Col> <Link onClick={() => Modify(dataAgenda[2])}>Marcar como realizada</Link> </Col>
-                                        <Col> <Link onClick={() => Modify(dataAgenda[2])}>Marcar como no realizada </Link> </Col>
+                                        <Col> <Link onClick={() => Realizada(dataAgenda[2]._id,"Si")}>Marcar como realizada</Link> </Col>
+                                        <Col> <Link onClick={() => NoRealizada(dataAgenda[2]._id,"No")}>Marcar como no realizada </Link> </Col>
                                         <Col> <Link to="/modificaragenda" onClick={() => Modify(dataAgenda[2])}>Modificar</Link> </Col>
                                         <Col> <Link onClick={()=>Delete(dataAgenda[2]._id)}>Eliminar</Link> </Col>
                                     </Row>
@@ -314,8 +314,8 @@ function Calendary(){
                                 <Accordion.Body>Servicios: {dataAgenda[3].servicio}  </Accordion.Body>
                                 <Accordion.Body>
                                     <Row>
-                                        <Col> <Link onClick={() => Modify(dataAgenda[3])}>Marcar como realizada</Link> </Col>
-                                        <Col> <Link onClick={() => Modify(dataAgenda[3])}>Marcar como no realizada </Link> </Col>
+                                        <Col> <Link onClick={() => Realizada(dataAgenda[3]._id,"Si")}>Marcar como realizada</Link> </Col>
+                                        <Col> <Link onClick={() => NoRealizada(dataAgenda[3]._id,"No")}>Marcar como no realizada </Link> </Col>
                                         <Col> <Link to="/modificaragenda" onClick={() => Modify(dataAgenda[3])}>Modificar</Link> </Col>
                                         <Col> <Link onClick={()=>Delete(dataAgenda[3]._id)}>Eliminar</Link> </Col>
                                     </Row>

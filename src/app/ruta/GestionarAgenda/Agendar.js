@@ -60,6 +60,48 @@ function AsignarAgenda(){
     const onServSelect=(value)=>{setServicio(value), console.log(value)};
     // const opcionesSer=[]
 
+    const nombreValidate = React.useMemo(()=>{
+        if(nombre.length>0){
+            return false;
+        }
+        return true;
+    },[nombre]);
+
+    const rutValidate = React.useMemo(()=>{
+        if(rut.length>7){
+            return false;
+        }
+        return true;
+    },[rut]);
+
+    const correoValidate = React.useMemo(()=>{
+        if(correo.length>0){
+            return false;
+        }
+        return true;
+    },[correo]);
+
+    const telefonoValidate = React.useMemo(()=>{
+        if(telefono.length>0){
+            return false;
+        }
+        return true;
+    },[telefono]);
+
+    const peluqueroValidate = React.useMemo(()=>{
+        if(peluquero === ""){
+            return true;
+        }
+        return false;
+    },[peluquero]);
+
+    const servicioValidate = React.useMemo(()=>{
+        if(servicio === ""){
+            return true;
+        }
+        return false;
+    },[servicio]);
+
     React.useEffect(() => {
         fetch("/mod/servicio")
           .then(res => res.json())
@@ -195,8 +237,10 @@ function AsignarAgenda(){
                 <br/>
                 <br/>   
                 <br/>
-                <button type="button" className="btn btn-primary" onClick={()=> Handler()}>Siguiente</button>
-                <button type="button" className="btn btn-secondary" onClick={()=> Thisthis()}>this</button>
+                <Button onClick={()=> Handler()}disabled={
+                    ( nombreValidate || rutValidate || correoValidate ||  telefonoValidate 
+                    || peluqueroValidate || servicioValidate || !validate(rut))} >Siguiente </Button>
+                {/* <button type="button" className="btn btn-secondary" onClick={()=> Thisthis()}>this</button> */}
                 </Stack>
                 {/* <Button variant="primary" type="submit" onClick={() => Handler()}>Siguiente</Button> 
                 <Button variant="primary" type="submit" onClick={() =>(Thisthis())}>this</Button>  */}
