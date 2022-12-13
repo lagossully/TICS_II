@@ -107,8 +107,15 @@ Para instalar este stack siga los siguientes pasos:
 
 Para montar localmente ingrese los siguientes comandos en una terminal:
 
-* npm run dev
-* npm run webpack
+```sh
+npm run dev
+```
+Además de:
+
+```sh
+   npm run webpack
+   ```
+ 
 
 ### Prerrequisitos
 
