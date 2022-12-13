@@ -113,8 +113,8 @@ npm run dev
 Además de:
 
 ```sh
-   npm run webpack
-   ```
+npm run webpack
+```
  
 
 ### Prerrequisitos
@@ -122,8 +122,8 @@ Además de:
 Instalar npm
 * npm
   ```sh
-npm install npm@latest -g
-```
+  npm install npm@latest -g
+  ```
 
 ### Instalación
 
