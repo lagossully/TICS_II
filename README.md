@@ -105,6 +105,11 @@ Para instalar este stack siga los siguientes pasos:
 * Montar la API mendiante Node
 * Montar la base de datos mediante MongoDB
 
+Para montar localmente ingrese los siguientes comandos en una terminal:
+
+* npm run dev
+* npm run webpack
+
 ### Prerrequisitos
 
 Instalar npm
