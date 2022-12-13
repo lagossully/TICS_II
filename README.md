@@ -28,7 +28,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/lagossully/TICS_II">
-    <img src="Imagenes/Imagen.png" alt="Logo" width="800" height="600">
+    <img src="Imagenes/index.PNG" alt="Idex" width="800" height="600">
   </a>
 
   <h3 align="center">Página H&M Salón</h3>
@@ -141,6 +141,8 @@ Instalar npm
 
 
 ## Uso
+
+<img src="Imagenes/index.PNG" alt="Idex" width="800" height="600">
 
 De la parte del cliente blablablablablablabla
 
