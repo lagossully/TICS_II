@@ -122,8 +122,8 @@ Además de:
 Instalar npm
 * npm
   ```sh
-  npm install npm@latest -g
-  ```
+npm install npm@latest -g
+```
 
 ### Instalación
 
