@@ -278,7 +278,6 @@ function Agenda(){
                 <Navbar.Toggle aria-controls="basic-navbar-nav"  />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="" onClick={() => navigation("/sandbox")}>Sandbox</Nav.Link>
                     </Nav>
                     {/* <Button variant="light" onClick={()=>{localStorage.clear(), navigation("/")}}>Cerrar sesión</Button>{' '} */}
                 </Navbar.Collapse>
