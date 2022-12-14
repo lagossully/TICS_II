@@ -143,15 +143,15 @@ Instalar npm
 
 <img src="Imagenes/Index.PNG" alt="Index" width="800" height="600">
 
-De la parte del cliente <a href="#readme-top">↑↑↑</a>
+De la parte del cliente: <a href="https://www.youtube.com/watch?v=UV0Qop2ul6Y">Video Cliente</a>
 
-El peluquero puede blablabla con el botón blablabla 
+De parte del peluquero: <a href="https://www.youtube.com/watch?v=3TIqLfZC64g">Video Peluquero</a>
 
-Con la vista del administrador blablabla
+Lado administrador: <a href="https://www.youtube.com/watch?v=h-nFUsA51wE">Video Peluquero</a>
 
 
 
-<p align="right">(<a href="https://www.youtube.com/watch?v=UV0Qop2ul6Y">Video Cliente</a>)</p>
+<p align="right">(<a href="#readme-top">↑↑↑</a>)</p>
 
 
 
