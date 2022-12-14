@@ -147,7 +147,7 @@ De la parte del cliente: <a href="https://www.youtube.com/watch?v=UV0Qop2ul6Y">V
 
 De parte del peluquero: <a href="https://www.youtube.com/watch?v=3TIqLfZC64g">Video Peluquero</a>
 
-Lado administrador: <a href="https://www.youtube.com/watch?v=h-nFUsA51wE">Video Peluquero</a>
+Lado administrador: <a href="https://www.youtube.com/watch?v=h-nFUsA51wE">Video Administrador</a>
 
 
 
