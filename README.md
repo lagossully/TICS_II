@@ -18,8 +18,7 @@
 *** for contributors-url, forks-url, etc. This is an optional, concise syntax you may use.
 *** https://www.markdownguide.org/basic-syntax/#reference-style-links
 -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
+
 
 
 
@@ -28,7 +27,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/lagossully/TICS_II">
-    <img src="Imagenes/Imagen.png" alt="Logo" width="800" height="600">
+    <img src="Imagenes/Index.PNG" alt="Index" width="800" height="600">
   </a>
 
   <h3 align="center">Página H&M Salón</h3>
@@ -105,6 +104,18 @@ Para instalar este stack siga los siguientes pasos:
 * Montar la API mendiante Node
 * Montar la base de datos mediante MongoDB
 
+Para montar localmente ingrese los siguientes comandos en una terminal:
+
+```sh
+npm run dev
+```
+Además de:
+
+```sh
+npm run webpack
+```
+ 
+
 ### Prerrequisitos
 
 Instalar npm
@@ -130,11 +141,13 @@ Instalar npm
 
 ## Uso
 
-De la parte del cliente blablablablablablabla
+<img src="Imagenes/Index.PNG" alt="Index" width="800" height="600">
 
-El peluquero puede blablabla con el botón blablabla 
+De la parte del cliente: <a href="https://www.youtube.com/watch?v=UV0Qop2ul6Y">Video Cliente</a>
 
-Con la vista del administrador blablabla
+De parte del peluquero: <a href="https://www.youtube.com/watch?v=3TIqLfZC64g">Video Peluquero</a>
+
+Lado administrador: <a href="https://www.youtube.com/watch?v=h-nFUsA51wE">Video Administrador</a>
 
 
 
@@ -185,12 +198,6 @@ Diego Lagos - Diego.lagos@mail.udp.cl
 [contributors-url]: https://github.com/lagossully/TICS_II/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
 [forks-url]: https://github.com/lagossully/TICS_II/network/members
-[stars-shield]: https://img.shields.io/github/stars/othneildrew/Best-README-Template.svg?style=for-the-badge
-[stars-url]: https://github.com/othneildrew/Best-README-Template/stargazers
-[issues-shield]: https://img.shields.io/github/issues/othneildrew/Best-README-Template.svg?style=for-the-badge
-[issues-url]: https://github.com/othneildrew/Best-README-Template/issues
-[license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
-[license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
 [linkedin-url]: https://linkedin.com/in/othneildrew
 [product-screenshot]: images/screenshot.png
