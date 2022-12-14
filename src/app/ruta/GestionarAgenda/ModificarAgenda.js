@@ -67,10 +67,26 @@ function Calendary(){
             .then(res => res.json())
             .then(data => {
                 setData(data)
-                setIsFetching(true)
 
             })    
             .catch(err => console.error(err))
+
+
+            
+        fetch("/mod/user")
+        .then(res => res.json())
+        .then(data => {
+            data.map((e)=>{
+                if(e.nombre === sessionStorage.getItem("peluquero")){
+                    sessionStorage.setItem("horario", e.horario)
+                    setIsFetching(true)
+                }
+            })
+        })
+        .catch(err => console.error(err))
+
+
+
         }, []);
         // console.log(data.map((e)=>{return e.fecha}))
         // const today = moment().format('L');
@@ -218,7 +234,7 @@ function Calendary(){
                     ))}
                 </thead>
             </table>
-            <Button onClick={()=>console.log(data, sessionStorage.getItem("peluquero"))}>SSSSSSSSSSs</Button>
+            {/* <Button onClick={()=>console.log(data, sessionStorage.getItem("peluquero"))}>SSSSSSSSSSs</Button> */}
         </div>
     )}
 }
