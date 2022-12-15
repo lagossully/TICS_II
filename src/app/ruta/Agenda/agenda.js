@@ -14,16 +14,13 @@ import Auth from "../utils/auth";
 
 const Styles = styled.div`
 padding: 1rem;
-
   .user {
     background-color: blue;
     color: white;
   }
-
   table {
     border-spacing: 0;
     border: 1px solid black;
-
     tr {
       :last-child {
         td {
@@ -31,14 +28,12 @@ padding: 1rem;
         }
       }
     }
-
     th,
     td {
       margin: 0;
       padding: 0.5rem;
       border-bottom: 1px solid black;
       border-right: 1px solid black;
-
       :last-child {
         border-right: 0;
       }
@@ -278,7 +273,6 @@ function Agenda(){
                 <Navbar.Toggle aria-controls="basic-navbar-nav"  />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="me-auto">
-                        <Nav.Link href="" onClick={() => navigation("/sandbox")}>Sandbox</Nav.Link>
                     </Nav>
                     {/* <Button variant="light" onClick={()=>{localStorage.clear(), navigation("/")}}>Cerrar sesión</Button>{' '} */}
                 </Navbar.Collapse>

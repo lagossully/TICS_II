@@ -1,4 +1,3 @@
-
 import React, { Component, useCallback } from "react";
 import { Form, Button, Card, Col, Navbar, Nav, Container,Stack} from 'react-bootstrap';
 import Select from "react-select";
@@ -22,7 +21,6 @@ function Navlog (){
                         <Nav.Link href="" onClick={() => navigation("/inventario")}>Inventario</Nav.Link>
                         <Nav.Link href="" onClick={() => navigation("/ventas")}>Ventas</Nav.Link>
                         <Nav.Link href="" onClick={() => navigation("/menuprincipal")}>Portada</Nav.Link>
-                        <Nav.Link href="" onClick={() => navigation("/sandbox")}>Sandbox</Nav.Link>
                         {/* <Nav.Link href="" onClick={() => navigation("/asignarhora")}>Pedir Cita</Nav.Link> */}
                     </Nav>
                     <Button variant="light" onClick={()=>{localStorage.clear(), navigation("/")}}>Cerrar sesión</Button>{' '}

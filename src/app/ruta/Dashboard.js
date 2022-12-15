@@ -57,7 +57,6 @@ const Styles2 = styled.div`
   color: var(--dark-3);
   margin-top: 8px;
 }
-
 `
 
 const Styles = styled.div`
@@ -253,7 +252,7 @@ function Dashboard (){
          <div class="col-lg-4 col-md-7 col-sm-9">
             <div class="single-card card-style-one">
                <div class="card-image">
-                  <img src="https://estudiantes.udp.cl/cms/wp-content/uploads/2019/09/1546524164_096288_1546524726_noticia_normal-calendario.jpg" alt="Image" width="300" height="280"/>
+                  <img src="https://d1ih8jugeo2m5m.cloudfront.net/2021/02/fechas-especiales-2021.jpg" alt="Image" width="400" height="280"/>
                </div>
                <div class="card-content">
                   <h4 class="card-title">
@@ -372,7 +371,7 @@ function Dashboard (){
                             <Card.Body>
                                 <Card.Title>Gestionar Agenda</Card.Title>
                                 <div class="card-image">
-                                  <img src="https://estudiantes.udp.cl/cms/wp-content/uploads/2019/09/1546524164_096288_1546524726_noticia_normal-calendario.jpg" alt="Image" width="300" height="280"/>
+                                  <img src="https://d1ih8jugeo2m5m.cloudfront.net/2021/02/fechas-especiales-2021.jpg" alt="Image" width="400" height="280"/>
                                 </div>
                                 <Card.Text>
                                     <Link to="/gestionaragenda">Gestionar Agenda</Link>

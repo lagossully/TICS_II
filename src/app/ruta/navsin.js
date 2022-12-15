@@ -1,4 +1,3 @@
-
 import React, { Component, useCallback } from "react";
 import { Form, Button, Card, Col, Navbar, Nav, Container,Stack} from 'react-bootstrap';
 import Select from "react-select";
@@ -20,7 +19,6 @@ function Navsin (){
                 {/* <Nav.Link href="" onClick={() => navigation("/inventario")}>Inventario</Nav.Link>
                 <Nav.Link href="" onClick={() => navigation("/ventas")}>Ventas</Nav.Link> */}
                 <Nav.Link href="" onClick={() => navigation("/menuprincipal")}>Menu Principal</Nav.Link>
-                <Nav.Link href="" onClick={() => navigation("/sandbox")}>Sandbox</Nav.Link>
                 {/* <Nav.Link href="" onClick={() => navigation("/asignarhora")}>Agendar Cita</Nav.Link> */}
             </Nav>
 

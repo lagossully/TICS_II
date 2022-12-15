@@ -12,16 +12,13 @@ import Auth from "../utils/auth";
 
 const Styles = styled.div`
 padding: 1rem;
-
   .user {
     background-color: blue;
     color: white;
   }
-
   table {
     border-spacing: 0;
     border: 1px solid black;
-
     tr {
       :last-child {
         td {
@@ -29,14 +26,12 @@ padding: 1rem;
         }
       }
     }
-
     th,
     td {
       margin: 0;
       padding: 0.5rem;
       border-bottom: 1px solid black;
       border-right: 1px solid black;
-
       :last-child {
         border-right: 0;
       }
@@ -67,10 +62,26 @@ function Calendary(){
             .then(res => res.json())
             .then(data => {
                 setData(data)
-                setIsFetching(true)
 
             })    
             .catch(err => console.error(err))
+
+
+            
+        fetch("/mod/user")
+        .then(res => res.json())
+        .then(data => {
+            data.map((e)=>{
+                if(e.nombre === sessionStorage.getItem("peluquero")){
+                    sessionStorage.setItem("horario", e.horario)
+                    setIsFetching(true)
+                }
+            })
+        })
+        .catch(err => console.error(err))
+
+
+
         }, []);
         // console.log(data.map((e)=>{return e.fecha}))
         // const today = moment().format('L');
@@ -218,7 +229,7 @@ function Calendary(){
                     ))}
                 </thead>
             </table>
-            <Button onClick={()=>console.log(data, sessionStorage.getItem("peluquero"))}>SSSSSSSSSSs</Button>
+            {/* <Button onClick={()=>console.log(data, sessionStorage.getItem("peluquero"))}>SSSSSSSSSSs</Button> */}
         </div>
     )}
 }
