@@ -137,7 +137,8 @@ function AsignarAgenda(){
             usuario:peluquero.label,
             cliente:rut,
             servicio:servicio.value,
-            fecha:sessionStorage.getItem("fecha")
+            fecha:sessionStorage.getItem("fecha"),
+            realizado:"Pendiente"
         }
         fetch("/mod/agenda",{ //agregar cita
             method:"POST",
@@ -239,7 +240,7 @@ function AsignarAgenda(){
                 <br/>
                 <Button onClick={()=> Handler()}disabled={
                     ( nombreValidate || rutValidate || correoValidate ||  telefonoValidate 
-                    || peluqueroValidate || servicioValidate || !validate(rut))} >Siguiente </Button>
+                    || peluqueroValidate || servicioValidate)} >Siguiente </Button>
                 {/* <button type="button" className="btn btn-secondary" onClick={()=> Thisthis()}>this</button> */}
                 </Stack>
                 {/* <Button variant="primary" type="submit" onClick={() => Handler()}>Siguiente</Button> 

@@ -19,8 +19,8 @@ router.get('/:id', async (req, res) => {
 
 // ADD a new task
 router.post('/', async (req, res) => {
-  const { usuario, cliente, servicio, fecha} = req.body;
-  const agenda = new Agenda({usuario, cliente, servicio, fecha});
+  const { usuario, cliente, servicio, fecha, realizado} = req.body;
+  const agenda = new Agenda({usuario, cliente, servicio, fecha, realizado});
   // console.log(product)
   await agenda.save();
   res.json({status: 'Agenda Guardado'});
